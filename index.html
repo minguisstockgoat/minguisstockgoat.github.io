@@ -41,14 +41,18 @@
   .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent)}
   h1{font-size:clamp(28px,5vw,42px);font-weight:750;letter-spacing:-.02em;line-height:1.15}
   .lead{margin-top:12px;color:var(--muted);font-size:clamp(15px,2.4vw,17px);max-width:56ch;line-height:1.6}
+  section{margin-top:clamp(30px,4.5vw,44px)}
+  .sec-head{display:flex;align-items:baseline;gap:12px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+  .sec-head h2{font-size:15px;font-weight:700;letter-spacing:-.01em;white-space:nowrap}
+  .sec-head .sec-sub{font-size:12.5px;color:var(--sub);line-height:1.5}
   .grid{
-    display:grid;gap:16px;margin-top:clamp(24px,4vw,36px);
-    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+    display:grid;gap:14px;margin-top:16px;
+    grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
   }
   .card{
     position:relative;display:flex;flex-direction:column;
     background:var(--card);border:1px solid var(--border);
-    border-radius:16px;padding:22px 22px 20px;
+    border-radius:14px;padding:18px 20px;
     text-decoration:none;color:inherit;
     transition:transform .16s ease, border-color .16s ease, background .16s ease, box-shadow .16s ease;
     overflow:hidden;
@@ -59,24 +63,19 @@
     box-shadow:0 18px 40px -22px rgba(0,0,0,.6);
   }
   .card::after{
-    content:"↗";position:absolute;top:18px;right:20px;
+    content:"↗";position:absolute;top:16px;right:18px;
     font-size:18px;color:var(--sub);transition:color .16s ease, transform .16s ease;
   }
   .card:hover::after{color:var(--accent);transform:translate(2px,-2px)}
   .icon{
-    width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
-    font-size:22px;margin-bottom:16px;
+    width:36px;height:36px;border-radius:10px;display:grid;place-items:center;
+    font-size:18px;margin-bottom:12px;
     background:linear-gradient(145deg, rgba(91,157,255,.18), rgba(91,157,255,.06));
     border:1px solid var(--border);
   }
-  .tag{
-    display:inline-block;font-size:11px;font-weight:600;letter-spacing:.06em;
-    color:var(--accent);text-transform:uppercase;margin-bottom:8px;
-  }
-  .card h2{font-size:18px;font-weight:680;letter-spacing:-.01em;line-height:1.35}
-  .card p{margin-top:9px;color:var(--muted);font-size:13.5px;line-height:1.6;flex:1}
-  .url{margin-top:16px;font-size:12px;color:var(--sub);font-family:ui-monospace,"SF Mono",Menlo,monospace;
-    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .card h3{font-size:16.5px;font-weight:680;letter-spacing:-.01em;line-height:1.35;padding-right:22px}
+  .card p{margin-top:7px;color:var(--muted);font-size:13px;line-height:1.55}
+  .freq{margin-top:12px;font-size:11px;font-weight:600;letter-spacing:.06em;color:var(--sub);text-transform:uppercase}
   footer{margin-top:44px;color:var(--sub);font-size:12.5px;text-align:center;line-height:1.7}
   footer a{color:var(--muted);text-decoration:none}
   footer a:hover{color:var(--accent)}
@@ -87,90 +86,94 @@
   <header>
     <span class="eyebrow"><span class="dot"></span>Dashboard Hub</span>
     <h1>통합 대시보드</h1>
-    <p class="lead">직접 만든 GitHub Pages 대시보드 모음입니다. 카드를 누르면 새 탭에서 열립니다.</p>
+    <p class="lead">직접 만든 GitHub Pages 대시보드 모음. 시황·수급·이벤트·펀더멘탈 네 구역으로 나눠 두었고, 카드를 누르면 새 탭에서 열립니다.</p>
   </header>
 
-  <main class="grid">
+  <main>
 
+  <section>
+    <div class="sec-head"><h2>시황</h2><span class="sec-sub">밤사이 글로벌 시장과 국내 차트 흐름을 훑는다</span></div>
+    <div class="grid">
     <a class="card" target="_blank" rel="noopener" href="https://minguisstockgoat.github.io/overnight-terminal/">
       <div class="icon">📟</div>
-      <span class="tag">실시간 · 오버나잇</span>
-      <h2>Overnight Terminal</h2>
-      <p>WTI·미국채 금리·환율·미 지수선물·VIX·크립토를 블룸버그 터미널 스타일로 실시간 모니터링. 야간 장세(18~06시) 확인용, 텔레그램 언급 빈도 기반 지표 구성.</p>
-      <span class="url">minguisstockgoat.github.io/overnight-terminal</span>
+      <h3>Overnight Terminal</h3>
+      <p>WTI·미국채·환율·미 지수선물·VIX·크립토 실시간 터미널.</p>
+      <span class="freq">실시간</span>
     </a>
-
     <a class="card" target="_blank" rel="noopener" href="https://minguisstockgoat.github.io/overnight-us-brief/">
       <div class="icon">🌙</div>
-      <span class="tag">미장 · 매일</span>
-      <h2>전날 미장 시황 브리핑</h2>
-      <p>전 영업일 밤사이 미국 증시·글로벌 매크로 뉴스를 주제별·시계열로 정리. 매 영업일 오전 자동 갱신(Gemini 요약 + Opus 큐레이션).</p>
-      <span class="url">minguisstockgoat.github.io/overnight-us-brief</span>
+      <h3>전날 미장 시황 브리핑</h3>
+      <p>밤사이 미국 증시·매크로 뉴스를 주제별 시계열로 요약.</p>
+      <span class="freq">매 영업일</span>
     </a>
-
-    <a class="card" target="_blank" rel="noopener" href="https://minguisstockgoat.github.io/fwd-per-band/">
-      <div class="icon">📈</div>
-      <span class="tag">밸류에이션 · 매일</span>
-      <h2>Fwd PER 밴드</h2>
-      <p>코스피200·코스닥150 종목의 12개월 선행 PER 밴드. 시총·PER·최근 MDD로 정렬하고, 종목별 주가 대비 PER 밴드와 컨센서스 추이를 확인. 매 영업일 아침 자동 누적.</p>
-      <span class="url">minguisstockgoat.github.io/fwd-per-band</span>
-    </a>
-
-    <a class="card" target="_blank" rel="noopener" href="https://minguisstockgoat.github.io/short-interest-dashboard/">
-      <div class="icon">📉</div>
-      <span class="tag">공매도 · 매일</span>
-      <h2>국내 공매도 잔고 대시보드</h2>
-      <p>시총 1조원 이상 보통주의 공매도 순보유잔고와 상장·유동주식수 대비 비율 랭킹. T+2 공시 시차 구간은 대차잔고 증감·공매도 거래량 회귀로 당일치를 추정하고, 종목별 잔고비율 추이를 확인.</p>
-      <span class="url">minguisstockgoat.github.io/short-interest-dashboard</span>
-    </a>
-
-    <a class="card" target="_blank" rel="noopener" href="https://minguisstockgoat.github.io/passive-etf-dashboard/">
-      <div class="icon">📊</div>
-      <span class="tag">ETF</span>
-      <h2>국내 상장 패시브 ETF 대시보드</h2>
-      <p>정기변경 일정·시가총액·구성종목·비중 cap 규제를 한눈에. 시총·테마·운용사 필터와 실시간 시총 갱신.</p>
-      <span class="url">minguisstockgoat.github.io/passive-etf-dashboard</span>
-    </a>
-
-    <a class="card" target="_blank" rel="noopener" href="https://minguisstockgoat.github.io/ETF-Passive-Tracker/">
-      <div class="icon">🔎</div>
-      <span class="tag">ETF</span>
-      <h2>패시브 ETF 구성비중 트래커</h2>
-      <p>SOL·RISE·TIGER 등 주요 ETF의 구성종목과 최신 기준일 대비 일간 비중·보유수량 변화(리밸런싱) 추적.</p>
-      <span class="url">minguisstockgoat.github.io/ETF-Passive-Tracker</span>
-    </a>
-
-    <a class="card" target="_blank" rel="noopener" href="https://minguisstockgoat.github.io/hynix-ADR-etc/">
-      <div class="icon">⇄</div>
-      <span class="tag">차익 · 괴리율</span>
-      <h2>SK하이닉스 본주 ⇄ ADR 괴리율</h2>
-      <p>본주(KRX·NXT)와 나스닥 ADR, 원/달러 환율을 실시간 수신해 괴리율을 초 단위로 재계산.</p>
-      <span class="url">minguisstockgoat.github.io/hynix-ADR-etc</span>
-    </a>
-
     <a class="card" target="_blank" rel="noopener" href="https://minguisstockgoat.github.io/pattern-screener/">
       <div class="icon">📐</div>
-      <span class="tag">차트 패턴 · 매일</span>
-      <h2>패턴 스크리너</h2>
-      <p>KOSPI·KOSDAQ 시총 3,000억 이상 종목의 쌍바닥·쌍봉·박스권 돌파·52주/60일 신고가 패턴을 매 영업일 자동 스크리닝. KRX OPEN API 일봉 기준.</p>
-      <span class="url">minguisstockgoat.github.io/pattern-screener</span>
+      <h3>패턴 스크리너</h3>
+      <p>쌍바닥·쌍봉·박스권 돌파·신고가를 시총 3,000억↑ 전종목에서 탐지.</p>
+      <span class="freq">매 영업일</span>
     </a>
+    </div>
+  </section>
 
+  <section>
+    <div class="sec-head"><h2>수급 · 차익</h2><span class="sec-sub">누가 사고 파는지, 어디에 괴리가 벌어져 있는지 본다</span></div>
+    <div class="grid">
+    <a class="card" target="_blank" rel="noopener" href="https://minguisstockgoat.github.io/short-interest-dashboard/">
+      <div class="icon">📉</div>
+      <h3>국내 공매도 잔고</h3>
+      <p>시총 1조↑ 종목의 공매도 잔고비율 랭킹과 미공시 구간 추정치.</p>
+      <span class="freq">매 영업일</span>
+    </a>
+    <a class="card" target="_blank" rel="noopener" href="https://minguisstockgoat.github.io/passive-etf-dashboard/">
+      <div class="icon">📊</div>
+      <h3>국내 상장 패시브 ETF</h3>
+      <p>정기변경 일정·시총·구성종목·비중 cap 규제를 한 화면에.</p>
+      <span class="freq">실시간 시총</span>
+    </a>
+    <a class="card" target="_blank" rel="noopener" href="https://minguisstockgoat.github.io/ETF-Passive-Tracker/">
+      <div class="icon">🔎</div>
+      <h3>ETF 구성비중 트래커</h3>
+      <p>주요 ETF의 일간 비중·보유수량 변화로 리밸런싱 흔적 추적.</p>
+      <span class="freq">매 영업일</span>
+    </a>
+    <a class="card" target="_blank" rel="noopener" href="https://minguisstockgoat.github.io/hynix-ADR-etc/">
+      <div class="icon">⇄</div>
+      <h3>SK하이닉스 본주 ⇄ ADR</h3>
+      <p>본주·나스닥 ADR·환율을 실시간 수신해 괴리율을 초 단위 재계산.</p>
+      <span class="freq">실시간</span>
+    </a>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>이벤트</h2><span class="sec-sub">공시와 일정에서 나오는 매매 트리거를 챙긴다</span></div>
+    <div class="grid">
     <a class="card" target="_blank" rel="noopener" href="https://minguisstockgoat.github.io/event-calendar/">
       <div class="icon">🗓️</div>
-      <span class="tag">공시 · 이벤트</span>
-      <h2>자본조달 이벤트 캘린더</h2>
-      <p>진행 중인 유·무상증자, CB·BW·EB·CPS의 남은 일정을 기업별 타임라인으로. 전환 오버행(잠재물량·청구 창·유동주식수 대비 %) 전용 탭 포함, 새 공시 감지 시 수 분 내 준실시간 반영.</p>
-      <span class="url">minguisstockgoat.github.io/event-calendar</span>
+      <h3>자본조달 이벤트 캘린더</h3>
+      <p>진행 중인 증자·CB·BW·EB 일정과 전환 오버행을 타임라인으로.</p>
+      <span class="freq">준실시간</span>
     </a>
-
     <a class="card" target="_blank" rel="noopener" href="https://minguisstockgoat.github.io/earnings-week/">
       <div class="icon">📅</div>
-      <span class="tag">실적</span>
-      <h2>실적 발표 캘린더</h2>
-      <p>미국·일본 주요 기업의 실적 발표 일정을 주간 캘린더로 정리.</p>
-      <span class="url">minguisstockgoat.github.io/earnings-week</span>
+      <h3>실적 발표 캘린더</h3>
+      <p>미국·일본 주요 기업의 실적 발표 일정을 주간 캘린더로.</p>
+      <span class="freq">주간</span>
     </a>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>펀더멘탈 리서치</h2><span class="sec-sub">이익 추정과 밸류에이션 레벨을 확인한다</span></div>
+    <div class="grid">
+    <a class="card" target="_blank" rel="noopener" href="https://minguisstockgoat.github.io/fwd-per-band/">
+      <div class="icon">📈</div>
+      <h3>Fwd PER 밴드</h3>
+      <p>코스피200·코스닥150의 12개월 선행 PER 밴드와 컨센서스 추이.</p>
+      <span class="freq">매 영업일</span>
+    </a>
+    </div>
+  </section>
 
   </main>
 
