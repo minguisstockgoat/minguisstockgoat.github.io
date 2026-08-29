@@ -148,6 +148,10 @@ table.data .num{text-align:right;font-variant-numeric:tabular-nums}
 
 /* ── misc ── */
 .note{font-size:11.5px;color:var(--muted);margin:10px 2px 0;line-height:1.6}
+.banner{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-bottom:12px;
+  background:var(--surface);border:1px solid rgba(250,178,25,.5);border-left:3px solid var(--warn);
+  border-radius:9px;padding:9px 13px;font-size:12.5px;box-shadow:var(--shadow)}
+.banner b{font-size:13px}
 .empty{color:var(--muted);font-size:13px;padding:26px;text-align:center;
   background:var(--surface);border:1px dashed var(--ring);border-radius:10px}
 details.rules{background:var(--surface);border:1px solid var(--ring);border-radius:10px;
@@ -227,6 +231,7 @@ function spark(pts, opts = {}) {
 
 /* ── 상태 라벨 ── */
 const STATUS = {
+  release_confirmed: { txt: 'KRX 해제확정', cls: 'good', icon: '✓' },
   release_ready: { txt: '해제요건 충족', cls: 'good', icon: '✓' },
   blocked:       { txt: '해제요건 미충족', cls: 'warn', icon: '!' },
   before_judge:  { txt: '판단기간 전', cls: '', icon: '·' },
@@ -249,7 +254,8 @@ function warnCard(r) {
       <span class="badge ml">시세 없음</span></div></div></article>`;
 
   const j = r.latest, g = r.group, js = r.judge_start, rl = r.release_line, h = r.halt;
-  const readyCls = r.status === 'release_ready' ? ' ready' : '';
+  const ready = r.status === 'release_ready' || r.status === 'release_confirmed';
+  const readyCls = ready ? ' ready' : '';
   const dday = js.reached ? '판단 중' : `D-${js.remaining_sessions}거래일`;
   const halted = !!r.halted;
 
@@ -291,17 +297,20 @@ function warnCard(r) {
         </div>
         <div class="sep"></div>
         <div class="cell">
-          <div class="lab">${r.status === 'release_ready' ? '예상 해제일' : '최단 해제일'}</div>
-          <div class="val ${r.status === 'release_ready' ? 'hi' : ''}">${
-            halted ? '–'
+          <div class="lab">${r.status === 'release_confirmed' ? '해제일 (KRX 공표)'
+                             : r.status === 'release_ready' ? '예상 해제일' : '최단 해제일'}</div>
+          <div class="val ${ready ? 'hi' : ''}">${
+            r.status === 'release_confirmed' ? r.confirmed_release
+            : halted ? '–'
             : r.status === 'release_ready' ? r.expected_release_date
             : r.status === 'blocked' ? `${r.next_session} <span class="hint">요건 벗어나야</span>`
             : js.earliest_release + (js.projected ? ' <span class="hint">(예상)</span>' : '')}</div>
         </div>
         <span class="dday">${
-          halted ? (js.reached ? '판단 중' : `잔여 ${js.remaining_sessions}거래일`)
-                 : (r.status === 'release_ready' ? '다음 거래일'
-                    : js.reached ? '판단 중' : `D-${js.remaining_sessions}거래일`)}</span>
+          r.status === 'release_confirmed' ? '확정'
+          : halted ? (js.reached ? '판단 중' : `잔여 ${js.remaining_sessions}거래일`)
+          : r.status === 'release_ready' ? '다음 거래일'
+          : js.reached ? '판단 중' : `D-${js.remaining_sessions}거래일`}</span>
       </div>
       ${conds}
       ${spark(r.spark, { designDate: r.design_date, releaseLine: rl.max_close, haltLine: h.trigger })}
@@ -367,7 +376,7 @@ function filterWarn(rows) {
   });
 }
 
-const ORDER = { release_ready: 0, blocked: 1, before_judge: 2, no_price: 3 };
+const ORDER = { release_confirmed: 0, release_ready: 1, blocked: 2, before_judge: 3, no_price: 4 };
 
 const CONDMARK = v => v == null ? '<span class="state na">–</span>'
   : v ? '<span class="state hit">● 해당</span>' : '<span class="state miss">○ 미해당</span>';
@@ -385,7 +394,9 @@ function warnTable(rows) {
           <td>${esc(r.market)}</td><td>${r.design_date}</td>
           <td colspan="9" style="color:var(--muted)">시세 없음</td></tr>`;
       const st = STATUS[r.status], js = r.judge_start, j = r.latest, g = r.group;
-      const soon = r.halted ? '–'
+      const soon = r.status === 'release_confirmed'
+          ? `<b style="color:var(--good-ink)">${r.confirmed_release}</b> <span class="hint">확정</span>`
+        : r.halted ? '–'
         : r.status === 'release_ready'
           ? `<b style="color:var(--good-ink)">${r.expected_release_date}</b>`
         : r.status === 'blocked' ? r.next_session
@@ -413,7 +424,13 @@ function viewWarning() {
   const rows = filterWarn(D.warning).sort((a, b) =>
     (ORDER[a.status] - ORDER[b.status]) || ((a.halted ? 1 : 0) - (b.halted ? 1 : 0)) ||
     ((a.judge_start?.date || '9999') < (b.judge_start?.date || '9999') ? -1 : 1));
-  return `${filterBar(true)}
+  const up = D.upcoming?.warning || [];
+  const banner = up.length ? `<div class="banner">
+      <b>${up[0].design_date} 투자경고 신규지정 ${up.length}종목</b>
+      <span>${up.map(u => `${esc(u.name)} <span class="code">${esc(u.code)}</span>`).join(' · ')}</span>
+      <span class="hint">${up[0].act_date} 공표 — 아직 지정 전이라 아래 목록에는 없다</span>
+    </div>` : '';
+  return `${filterBar(true)}${banner}
     ${rows.length ? (F.view === '표' ? warnTable(rows)
                                      : `<div class="grid">${rows.map(warnCard).join('')}</div>`)
                   : '<div class="empty">조건에 맞는 종목이 없다.</div>'}
@@ -591,9 +608,13 @@ function tiles() {
   const s = D.stats;
   const t = (k, v, n, dot) => `<div class="tile"><div class="k">${dot ? `<span class="dot ${dot}"></span>` : ''}${k}</div>
     <div class="v">${v}</div><div class="n">${n}</div></div>`;
+  const up = D.upcoming?.warning || [];
+  const relDate = (D.warning.find(r => r.confirmed_release) || {}).confirmed_release;
   $('#tiles').innerHTML =
     t('투자경고', s.warning, '현재 지정', 'serious') +
-    t('해제요건 충족', s.release_ready, `${D.next_session} 해제 예상`, 'good') +
+    t('해제 확정', s.release_confirmed,
+      relDate ? `${relDate} 해제` : (s.release_ready ? `${D.next_session} 해제 예상` : 'KRX 공표분 없음'), 'good') +
+    t('신규 지정', up.length, up.length ? `${up[0].design_date} 지정` : 'KRX 공표분 없음', 'serious') +
     t('판단기간 전', s.before_judge, s.halted ? `거래정지 ${s.halted}종목 포함` : '지정 +9거래일 대기', 'mute') +
     t('투자위험', s.risk, '최고 단계', 'crit') +
     t('지정예고', s.preannounce, '10거래일 내 승격 가능', 'warn') +
