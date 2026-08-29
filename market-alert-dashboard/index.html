@@ -104,12 +104,18 @@ label.flab{font-size:11.5px;color:var(--muted);margin-right:2px}
 .crow2 b{color:var(--ink-2);font-weight:600}
 .cbody{padding:11px 13px 12px;display:flex;flex-direction:column;gap:10px;flex:1}
 
-.judge{display:flex;align-items:center;gap:8px;background:var(--surface-2);
+.judge{display:flex;align-items:center;gap:11px;background:var(--surface-2);
   border-radius:9px;padding:8px 11px}
-.judge .lab{font-size:11.5px;color:var(--muted)}
-.judge .val{font-size:14px;font-weight:640;font-variant-numeric:tabular-nums}
+.judge .cell{min-width:0}
+.judge .lab{font-size:11px;color:var(--muted);white-space:nowrap}
+.judge .val{font-size:14px;font-weight:640;font-variant-numeric:tabular-nums;white-space:nowrap}
+.judge .val.past{color:var(--ink-2);font-weight:560}
+.judge .val.hi{color:var(--good-ink)}
+.hint{font-size:10.5px;color:var(--muted);font-weight:450}
+.judge .sep{width:1px;align-self:stretch;background:var(--grid);flex:none}
 .judge .dday{margin-left:auto;font-size:11.5px;font-weight:620;color:var(--ink-2);
-  background:var(--surface);border:1px solid var(--ring);border-radius:999px;padding:2px 9px}
+  background:var(--surface);border:1px solid var(--ring);border-radius:999px;
+  padding:2px 9px;white-space:nowrap}
 
 table.conds{width:100%;border-collapse:collapse;font-size:12.5px}
 table.conds th{text-align:left;font-weight:550;color:var(--muted);font-size:11px;
@@ -181,7 +187,8 @@ const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;
 const mk = h => { const t = document.createElement('template'); t.innerHTML = h.trim(); return t.content; };
 
 let D = null, TAB = (location.hash.slice(1) || 'warning');
-const F = { market: '전체', status: '전체', q: '' };
+const F = { market: '전체', status: '전체', q: '', view: '카드' };
+try { const v = localStorage.getItem('mad-view'); if (v) F.view = v; } catch {}
 
 /* ── 스파크라인: 단일 계열 + 지정일 표시 + 해제선 ── */
 function spark(pts, opts = {}) {
@@ -276,19 +283,25 @@ function warnCard(r) {
     </div>
     <div class="cbody">
       <div class="judge">
-        <div>
-          <div class="lab">${r.status === 'release_ready' ? '예상 해제일' : '해제 판단 개시일'}</div>
-          <div class="val">${
-            halted
-              ? '거래재개 후 산정'
-              : (r.status === 'release_ready' ? r.expected_release_date : js.date) +
-                (js.projected && r.status !== 'release_ready'
-                  ? ' <span style="font-size:11px;color:var(--muted);font-weight:450">(예상)</span>' : '')
-          }</div>
+        <div class="cell">
+          <div class="lab">최초 해제판단일</div>
+          <div class="val ${js.reached ? 'past' : ''}">${
+            halted ? '거래재개 후' : js.date +
+              (js.projected ? ' <span class="hint">(예상)</span>' : '')}</div>
+        </div>
+        <div class="sep"></div>
+        <div class="cell">
+          <div class="lab">${r.status === 'release_ready' ? '예상 해제일' : '최단 해제일'}</div>
+          <div class="val ${r.status === 'release_ready' ? 'hi' : ''}">${
+            halted ? '–'
+            : r.status === 'release_ready' ? r.expected_release_date
+            : r.status === 'blocked' ? `${r.next_session} <span class="hint">요건 벗어나야</span>`
+            : js.earliest_release + (js.projected ? ' <span class="hint">(예상)</span>' : '')}</div>
         </div>
         <span class="dday">${
           halted ? (js.reached ? '판단 중' : `잔여 ${js.remaining_sessions}거래일`)
-                 : (r.status === 'release_ready' ? '다음 거래일' : dday)}</span>
+                 : (r.status === 'release_ready' ? '다음 거래일'
+                    : js.reached ? '판단 중' : `D-${js.remaining_sessions}거래일`)}</span>
       </div>
       ${conds}
       ${spark(r.spark, { designDate: r.design_date, releaseLine: rl.max_close, haltLine: h.trigger })}
@@ -356,15 +369,58 @@ function filterWarn(rows) {
 
 const ORDER = { release_ready: 0, blocked: 1, before_judge: 2, no_price: 3 };
 
+const CONDMARK = v => v == null ? '<span class="state na">–</span>'
+  : v ? '<span class="state hit">● 해당</span>' : '<span class="state miss">○ 미해당</span>';
+
+function warnTable(rows) {
+  return `<div class="scroller"><table class="data">
+    <thead><tr>
+      <th>종목</th><th>시장</th><th>지정일</th><th class="num">경과</th>
+      <th>최초 해제판단일</th><th>최단·예상 해제일</th><th>상태</th>
+      <th class="num">종가</th><th class="num">5일</th><th class="num">15일</th>
+      <th>15일 최고</th><th class="num">해제선</th>
+    </tr></thead><tbody>${rows.map(r => {
+      if (r.status === 'no_price')
+        return `<tr><td><b>${esc(r.name)}</b> <span class="code">${esc(r.code)}</span></td>
+          <td>${esc(r.market)}</td><td>${r.design_date}</td>
+          <td colspan="9" style="color:var(--muted)">시세 없음</td></tr>`;
+      const st = STATUS[r.status], js = r.judge_start, j = r.latest, g = r.group;
+      const soon = r.halted ? '–'
+        : r.status === 'release_ready'
+          ? `<b style="color:var(--good-ink)">${r.expected_release_date}</b>`
+        : r.status === 'blocked' ? r.next_session
+        : js.earliest_release;
+      return `<tr>
+        <td><b>${esc(r.name)}</b> <span class="code">${esc(r.code)}</span></td>
+        <td>${esc(r.market)}</td>
+        <td>${r.design_date}</td>
+        <td class="num">${r.sessions_since_design}일</td>
+        <td><b>${r.halted ? '거래재개 후' : js.date}</b>${
+          js.projected && !r.halted ? ' <span class="hint">(예상)</span>' : ''}</td>
+        <td>${soon}</td>
+        <td><span class="badge ${st.cls}">${st.icon} ${st.txt}</span>${
+          r.halted ? ' <span class="badge crit">정지</span>' : ''}</td>
+        <td class="num">${fmt(j.close)}</td>
+        <td class="num">${pct(j.r5)} <span class="hint">/${(g.th5 * 100).toFixed(0)}</span></td>
+        <td class="num">${pct(j.r15)} <span class="hint">/${(g.th15 * 100).toFixed(0)}</span></td>
+        <td>${CONDMARK(j.cond.high15)}</td>
+        <td class="num">${fmt(r.release_line.max_close)}</td>
+      </tr>`;
+    }).join('')}</tbody></table></div>`;
+}
+
 function viewWarning() {
   const rows = filterWarn(D.warning).sort((a, b) =>
-    (ORDER[a.status] - ORDER[b.status]) || ((a.stale ? 1 : 0) - (b.stale ? 1 : 0)) ||
+    (ORDER[a.status] - ORDER[b.status]) || ((a.halted ? 1 : 0) - (b.halted ? 1 : 0)) ||
     ((a.judge_start?.date || '9999') < (b.judge_start?.date || '9999') ? -1 : 1));
   return `${filterBar(true)}
-    ${rows.length ? `<div class="grid">${rows.map(warnCard).join('')}</div>`
+    ${rows.length ? (F.view === '표' ? warnTable(rows)
+                                     : `<div class="grid">${rows.map(warnCard).join('')}</div>`)
                   : '<div class="empty">조건에 맞는 종목이 없다.</div>'}
-    <p class="note">해제요건 3가지에 <b>모두 미해당</b>인 매매거래일 다음 날 해제된다.
-      판단은 지정일부터 10일째 되는 날(지정일 +9 매매거래일)부터 시작한다.
+    <p class="note"><b>최초 해제판단일</b>은 지정일부터 10일째 되는 날, 곧 <b>지정일 +9 매매거래일</b>이다.
+      그날부터 매일 판정해 해제요건 3가지에 <b>모두 미해당</b>이면 다음 매매거래일에 해제된다.
+      아무리 빨라도 최초 판단일의 다음 거래일(= 지정일 +10 거래일)에 풀린다.
+      거래정지 종목은 정지 기간만큼 판단일이 밀린다.
       지정사유는 공표되지 않아 공시일 시세로 역산해 추정한 값이며, 추정이 불확실한 건은 반대 기준도 함께 표시한다.</p>`;
 }
 
@@ -508,6 +564,8 @@ function filterBar(withStatus) {
     <label class="flab">시장</label>${seg('market', ['전체', '코스피', '코스닥', '코넥스'], F.market)}
     ${withStatus ? `<label class="flab">상태</label>${seg('status', ['전체', '해제요건 충족', '미충족', '판단 전'], F.status)}` : ''}
     <input class="search" id="q" placeholder="종목명 · 코드" value="${esc(F.q)}" />
+    ${withStatus ? `<span style="margin-left:auto"></span><label class="flab">보기</label>${
+      seg('view', ['카드', '표'], F.view)}` : ''}
   </div>`;
 }
 
@@ -567,7 +625,12 @@ document.addEventListener('click', e => {
   const tab = e.target.closest('[data-t]');
   if (tab) { TAB = tab.dataset.t; history.replaceState(null, '', '#' + TAB); render(); return; }
   const seg = e.target.closest('.seg button');
-  if (seg) { F[seg.parentElement.dataset.f] = seg.dataset.v; render(); return; }
+  if (seg) {
+    const f = seg.parentElement.dataset.f;
+    F[f] = seg.dataset.v;
+    if (f === 'view') { try { localStorage.setItem('mad-view', F.view); } catch {} }
+    render(); return;
+  }
   if (e.target.id === 'theme') {
     const cur = document.documentElement.getAttribute('data-theme');
     const next = cur === 'dark' ? 'light' : cur === 'light' ? '' : 'dark';
