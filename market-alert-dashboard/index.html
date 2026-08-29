@@ -187,7 +187,7 @@ const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;
 const mk = h => { const t = document.createElement('template'); t.innerHTML = h.trim(); return t.content; };
 
 let D = null, TAB = (location.hash.slice(1) || 'warning');
-const F = { market: '전체', status: '전체', q: '', view: '카드' };
+const F = { market: '전체', status: '전체', q: '', view: '표' };
 try { const v = localStorage.getItem('mad-view'); if (v) F.view = v; } catch {}
 
 /* ── 스파크라인: 단일 계열 + 지정일 표시 + 해제선 ── */
