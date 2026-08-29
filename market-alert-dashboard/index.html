@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>시장경보 대시보드 — 투자주의 · 투자경고 · 투자위험</title>
+<style>
+:root{
+  color-scheme: light;
+  --plane:#f9f9f7; --surface:#fcfcfb; --surface-2:#f3f2ee;
+  --ink:#0b0b0b; --ink-2:#52514e; --muted:#898781;
+  --grid:#e1e0d9; --axis:#c3c2b7; --ring:rgba(11,11,11,.10);
+  --good:#0ca30c; --warn:#fab219; --serious:#ec835a; --crit:#d03b3b;
+  --good-ink:#006300; --crit-ink:#a52b2b; --warn-ink:#8a6100; --serious-ink:#a34a22;
+  --series:#2a78d6; --series-soft:rgba(42,120,214,.14);
+  --shadow:0 1px 2px rgba(11,11,11,.05), 0 1px 8px rgba(11,11,11,.04);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --plane:#0d0d0d; --surface:#1a1a19; --surface-2:#232322;
+    --ink:#ffffff; --ink-2:#c3c2b7; --muted:#898781;
+    --grid:#2c2c2a; --axis:#383835; --ring:rgba(255,255,255,.10);
+    --good-ink:#0ca30c; --crit-ink:#e88585; --warn-ink:#fab219; --serious-ink:#ec835a;
+    --series:#3987e5; --series-soft:rgba(57,135,229,.18);
+    --shadow:0 1px 2px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --plane:#0d0d0d; --surface:#1a1a19; --surface-2:#232322;
+  --ink:#ffffff; --ink-2:#c3c2b7; --muted:#898781;
+  --grid:#2c2c2a; --axis:#383835; --ring:rgba(255,255,255,.10);
+  --good-ink:#0ca30c; --crit-ink:#e88585; --warn-ink:#fab219; --serious-ink:#ec835a;
+  --series:#3987e5; --series-soft:rgba(57,135,229,.18);
+  --shadow:0 1px 2px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--plane);color:var(--ink);
+  font:14px/1.55 system-ui,-apple-system,"Segoe UI","Apple SD Gothic Neo",sans-serif;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:1240px;margin:0 auto;padding:20px 16px 64px}
+a{color:inherit}
+
+/* ── header ── */
+header.top{display:flex;flex-wrap:wrap;gap:12px;align-items:baseline;
+  justify-content:space-between;margin-bottom:14px}
+h1{font-size:19px;font-weight:650;margin:0;letter-spacing:-.01em}
+.sub{color:var(--muted);font-size:12.5px}
+.sub b{color:var(--ink-2);font-weight:600}
+.themebtn{border:1px solid var(--ring);background:var(--surface);color:var(--ink-2);
+  border-radius:7px;padding:5px 10px;font-size:12px;cursor:pointer}
+
+/* ── stat tiles ── */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:8px;margin-bottom:18px}
+.tile{background:var(--surface);border:1px solid var(--ring);border-radius:10px;
+  padding:11px 13px;box-shadow:var(--shadow)}
+.tile .k{font-size:11.5px;color:var(--muted);letter-spacing:.01em;
+  display:flex;align-items:center;gap:5px}
+.tile .v{font-size:25px;font-weight:640;letter-spacing:-.02em;margin-top:2px;line-height:1.15}
+.tile .n{font-size:11.5px;color:var(--muted)}
+.dot{width:7px;height:7px;border-radius:50%;flex:none;display:inline-block}
+.dot.good{background:var(--good)} .dot.warn{background:var(--warn)}
+.dot.serious{background:var(--serious)} .dot.crit{background:var(--crit)}
+.dot.mute{background:var(--axis)}
+
+/* ── tabs ── */
+nav.tabs{display:flex;gap:2px;flex-wrap:wrap;border-bottom:1px solid var(--grid);margin-bottom:14px}
+nav.tabs button{background:none;border:0;border-bottom:2px solid transparent;color:var(--muted);
+  padding:8px 12px;font-size:13.5px;font-weight:520;cursor:pointer;border-radius:6px 6px 0 0}
+nav.tabs button:hover{color:var(--ink-2);background:var(--surface-2)}
+nav.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--series);font-weight:620}
+nav.tabs .cnt{color:var(--muted);font-weight:450;font-size:12px;margin-left:4px}
+
+/* ── filters ── */
+.filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.seg{display:inline-flex;background:var(--surface-2);border:1px solid var(--ring);border-radius:8px;padding:2px}
+.seg button{background:none;border:0;color:var(--ink-2);font-size:12.5px;padding:4px 10px;
+  border-radius:6px;cursor:pointer;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);font-weight:600;
+  box-shadow:var(--shadow)}
+input.search{background:var(--surface);border:1px solid var(--ring);border-radius:8px;
+  padding:6px 10px;color:var(--ink);font-size:12.5px;min-width:150px;font-family:inherit}
+label.flab{font-size:11.5px;color:var(--muted);margin-right:2px}
+
+/* ── cards ── */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:12px}
+.card{background:var(--surface);border:1px solid var(--ring);border-radius:12px;
+  box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+.card.ready{border-color:rgba(12,163,12,.45)}
+.card.risk{border-color:rgba(208,59,59,.45)}
+.chead{padding:11px 13px 9px;border-bottom:1px solid var(--grid)}
+.crow1{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}
+.nm{font-size:15.5px;font-weight:640;letter-spacing:-.01em}
+.code{font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.badge{font-size:11px;font-weight:600;border-radius:999px;padding:2px 8px;
+  border:1px solid var(--ring);color:var(--ink-2);background:var(--surface-2);white-space:nowrap}
+.badge.good{color:var(--good-ink);border-color:rgba(12,163,12,.4);background:rgba(12,163,12,.10)}
+.badge.warn{color:var(--warn-ink);border-color:rgba(250,178,25,.5);background:rgba(250,178,25,.13)}
+.badge.crit{color:var(--crit-ink);border-color:rgba(208,59,59,.4);background:rgba(208,59,59,.10)}
+.badge.serious{color:var(--serious-ink);border-color:rgba(236,131,90,.45);background:rgba(236,131,90,.12)}
+.ml{margin-left:auto}
+.crow2{margin-top:4px;font-size:12px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 10px}
+.crow2 b{color:var(--ink-2);font-weight:600}
+.cbody{padding:11px 13px 12px;display:flex;flex-direction:column;gap:10px;flex:1}
+
+.judge{display:flex;align-items:center;gap:8px;background:var(--surface-2);
+  border-radius:9px;padding:8px 11px}
+.judge .lab{font-size:11.5px;color:var(--muted)}
+.judge .val{font-size:14px;font-weight:640;font-variant-numeric:tabular-nums}
+.judge .dday{margin-left:auto;font-size:11.5px;font-weight:620;color:var(--ink-2);
+  background:var(--surface);border:1px solid var(--ring);border-radius:999px;padding:2px 9px}
+
+table.conds{width:100%;border-collapse:collapse;font-size:12.5px}
+table.conds th{text-align:left;font-weight:550;color:var(--muted);font-size:11px;
+  padding:0 0 4px;border-bottom:1px solid var(--grid)}
+table.conds td{padding:5px 0;border-bottom:1px solid var(--grid);vertical-align:middle}
+table.conds tr:last-child td{border-bottom:0}
+table.conds .num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.state{display:inline-flex;align-items:center;gap:5px;font-weight:600;font-size:11.5px;white-space:nowrap}
+.state.hit{color:var(--crit-ink)} .state.miss{color:var(--good-ink)}
+.state.na{color:var(--muted)}
+
+.lines{display:flex;flex-direction:column;gap:5px;font-size:12px}
+.line{display:flex;gap:7px;align-items:baseline}
+.line .ic{width:14px;flex:none;text-align:center;font-size:11px}
+.line .tx{color:var(--ink-2)}
+.line .tx b{font-variant-numeric:tabular-nums;color:var(--ink);font-weight:640}
+.spark{display:block;width:100%;height:62px}
+
+/* ── plain table view ── */
+table.data{width:100%;border-collapse:collapse;font-size:12.5px;background:var(--surface);
+  border:1px solid var(--ring);border-radius:10px;overflow:hidden;box-shadow:var(--shadow)}
+table.data th{position:sticky;top:0;background:var(--surface-2);text-align:left;font-size:11.5px;
+  font-weight:600;color:var(--ink-2);padding:8px 10px;border-bottom:1px solid var(--grid);white-space:nowrap}
+table.data td{padding:7px 10px;border-bottom:1px solid var(--grid);white-space:nowrap}
+table.data tr:last-child td{border-bottom:0}
+table.data tbody tr:hover{background:var(--surface-2)}
+table.data .num{text-align:right;font-variant-numeric:tabular-nums}
+.scroller{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.pos{color:var(--crit-ink)} .neg{color:var(--series)}
+
+/* ── misc ── */
+.note{font-size:11.5px;color:var(--muted);margin:10px 2px 0;line-height:1.6}
+.empty{color:var(--muted);font-size:13px;padding:26px;text-align:center;
+  background:var(--surface);border:1px dashed var(--ring);border-radius:10px}
+details.rules{background:var(--surface);border:1px solid var(--ring);border-radius:10px;
+  padding:12px 14px;margin-bottom:10px;box-shadow:var(--shadow)}
+details.rules summary{cursor:pointer;font-weight:620;font-size:13.5px}
+details.rules .in{margin-top:9px;font-size:12.5px;color:var(--ink-2);line-height:1.7}
+details.rules code{background:var(--surface-2);border-radius:4px;padding:1px 5px;font-size:12px}
+.tt{position:fixed;pointer-events:none;background:var(--surface);border:1px solid var(--ring);
+  border-radius:7px;padding:5px 9px;font-size:11.5px;box-shadow:var(--shadow);z-index:50;
+  font-variant-numeric:tabular-nums;white-space:nowrap;opacity:0;transition:opacity .1s}
+kbd{font:inherit;font-size:11px;background:var(--surface-2);border:1px solid var(--ring);
+  border-radius:4px;padding:0 4px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>시장경보 대시보드</h1>
+      <div class="sub" id="meta">불러오는 중…</div>
+    </div>
+    <button class="themebtn" id="theme">테마</button>
+  </header>
+
+  <section class="tiles" id="tiles"></section>
+
+  <nav class="tabs" id="tabs" role="tablist"></nav>
+  <div id="view"></div>
+  <div class="tt" id="tt"></div>
+</div>
+
+<script>
+const $ = (s, r = document) => r.querySelector(s);
+const fmt = n => n == null ? '–' : n.toLocaleString('ko-KR');
+const pct = (n, d = 1) => n == null ? '–' : (n >= 0 ? '+' : '') + (n * 100).toFixed(d) + '%';
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const mk = h => { const t = document.createElement('template'); t.innerHTML = h.trim(); return t.content; };
+
+let D = null, TAB = (location.hash.slice(1) || 'warning');
+const F = { market: '전체', status: '전체', q: '' };
+
+/* ── 스파크라인: 단일 계열 + 지정일 표시 + 해제선 ── */
+function spark(pts, opts = {}) {
+  if (!pts || pts.length < 2) return '';
+  const W = 340, H = 62, PL = 2, PR = 2, PT = 6, PB = 6;
+  const cs = pts.map(p => p.c);
+  const extra = [opts.releaseLine, opts.haltLine].filter(v => v != null && v > 0);
+  const lo = Math.min(...cs, ...extra), hi = Math.max(...cs, ...extra);
+  const span = (hi - lo) || 1;
+  const x = i => PL + i * (W - PL - PR) / (pts.length - 1);
+  const y = v => PT + (hi - v) * (H - PT - PB) / span;
+  const d = cs.map((c, i) => (i ? 'L' : 'M') + x(i).toFixed(1) + ' ' + y(c).toFixed(1)).join(' ');
+  const area = d + ` L${x(pts.length - 1).toFixed(1)} ${H - PB} L${PL} ${H - PB} Z`;
+  let ref = '';
+  if (opts.releaseLine != null && opts.releaseLine >= lo && opts.releaseLine <= hi)
+    ref += `<line x1="${PL}" x2="${W - PR}" y1="${y(opts.releaseLine).toFixed(1)}" y2="${y(opts.releaseLine).toFixed(1)}"
+      stroke="var(--good)" stroke-width="1.5" stroke-dasharray="4 3" opacity=".85"/>`;
+  if (opts.haltLine != null && opts.haltLine >= lo && opts.haltLine <= hi)
+    ref += `<line x1="${PL}" x2="${W - PR}" y1="${y(opts.haltLine).toFixed(1)}" y2="${y(opts.haltLine).toFixed(1)}"
+      stroke="var(--crit)" stroke-width="1.5" stroke-dasharray="1.5 3" stroke-linecap="round" opacity=".85"/>`;
+  let mark = '';
+  const di = opts.designDate ? pts.findIndex(p => p.d >= opts.designDate) : -1;
+  if (di > 0) mark = `<line x1="${x(di).toFixed(1)}" x2="${x(di).toFixed(1)}" y1="${PT - 4}" y2="${H - PB + 2}"
+      stroke="var(--axis)" stroke-width="1.5"/>`;
+  const last = pts.length - 1;
+  return `<svg class="spark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none"
+    data-pts='${esc(JSON.stringify(pts))}' data-w="${W}" data-pl="${PL}" data-pr="${PR}">
+    ${mark}${ref}
+    <path d="${area}" fill="var(--series-soft)"/>
+    <path d="${d}" fill="none" stroke="var(--series)" stroke-width="2"
+      stroke-linejoin="round" stroke-linecap="round"/>
+    <circle cx="${x(last).toFixed(1)}" cy="${y(cs[last]).toFixed(1)}" r="3.2"
+      fill="var(--series)" stroke="var(--surface)" stroke-width="2"/>
+  </svg>`;
+}
+
+/* ── 상태 라벨 ── */
+const STATUS = {
+  release_ready: { txt: '해제요건 충족', cls: 'good', icon: '✓' },
+  blocked:       { txt: '해제요건 미충족', cls: 'warn', icon: '!' },
+  before_judge:  { txt: '판단기간 전', cls: '', icon: '·' },
+  no_price:      { txt: '시세 없음', cls: '', icon: '?' },
+};
+
+function condRow(label, valTxt, need, state) {
+  const s = state === null ? { c: 'na', t: '판단불가' }
+          : state ? { c: 'hit', t: '해당' } : { c: 'miss', t: '미해당' };
+  return `<tr><td>${label}</td><td class="num">${valTxt}</td>
+    <td class="num" style="color:var(--muted)">${need}</td>
+    <td class="num"><span class="state ${s.c}">${s.c === 'hit' ? '●' : s.c === 'miss' ? '○' : '–'} ${s.t}</span></td></tr>`;
+}
+
+function warnCard(r) {
+  const st = STATUS[r.status] || STATUS.no_price;
+  if (r.status === 'no_price')
+    return `<article class="card"><div class="chead"><div class="crow1">
+      <span class="nm">${esc(r.name)}</span><span class="code">${esc(r.code)} · ${esc(r.market)}</span>
+      <span class="badge ml">시세 없음</span></div></div></article>`;
+
+  const j = r.latest, g = r.group, js = r.judge_start, rl = r.release_line, h = r.halt;
+  const readyCls = r.status === 'release_ready' ? ' ready' : '';
+  const dday = js.reached ? '판단 중' : `D-${js.remaining_sessions}거래일`;
+  const halted = !!r.halted;
+
+  const conds = `<table class="conds">
+    <tr><th>해제요건 (모두 미해당 시 해제)</th><th class="num">현재</th><th class="num">기준</th><th class="num">판정</th></tr>
+    ${condRow('5일 전날 대비', pct(j.r5), '≥ ' + (g.th5 * 100).toFixed(0) + '%', j.cond.surge5)}
+    ${condRow('15일 전날 대비', pct(j.r15), '≥ ' + (g.th15 * 100).toFixed(0) + '%', j.cond.surge15)}
+    ${condRow('최근 15일 종가', fmt(j.close), '최고 ' + fmt(j.high15_price), j.cond.high15)}
+  </table>`;
+
+  const altNote = g.confidence === 'low'
+    ? `<div class="line"><span class="ic">≈</span><span class="tx">지정사유 미확인 —
+        ${(r.alt.th5 * 100).toFixed(0)}%/${(r.alt.th15 * 100).toFixed(0)}% 기준으로는
+        <b>${r.alt.releasable ? '해제요건 충족' : '미충족'}</b></span></div>` : '';
+
+  return `<article class="card${readyCls}">
+    <div class="chead">
+      <div class="crow1">
+        <span class="nm">${esc(r.name)}</span>
+        <span class="code">${esc(r.code)} · ${esc(r.market)}</span>
+        ${halted ? '<span class="badge crit ml">■ 거래정지 중</span>' +
+                   `<span class="badge">${st.icon} ${st.txt}</span>`
+                 : `<span class="badge ${st.cls} ml">${st.icon} ${st.txt}</span>`}
+      </div>
+      <div class="crow2">
+        <span>지정 <b>${r.design_date}</b></span>
+        <span><b>${r.sessions_since_design}</b>거래일 경과</span>
+        <span>${esc(g.reason)} <b>(${esc(g.label)} ${(g.th5*100).toFixed(0)}/${(g.th15*100).toFixed(0)})</b></span>
+        ${r.since_design_pct != null ? `<span>지정 전일 대비 <b class="${r.since_design_pct>=0?'pos':'neg'}">${pct(r.since_design_pct)}</b></span>` : ''}
+      </div>
+    </div>
+    <div class="cbody">
+      <div class="judge">
+        <div>
+          <div class="lab">${r.status === 'release_ready' ? '예상 해제일' : '해제 판단 개시일'}</div>
+          <div class="val">${
+            halted
+              ? '거래재개 후 산정'
+              : (r.status === 'release_ready' ? r.expected_release_date : js.date) +
+                (js.projected && r.status !== 'release_ready'
+                  ? ' <span style="font-size:11px;color:var(--muted);font-weight:450">(예상)</span>' : '')
+          }</div>
+        </div>
+        <span class="dday">${
+          halted ? (js.reached ? '판단 중' : `잔여 ${js.remaining_sessions}거래일`)
+                 : (r.status === 'release_ready' ? '다음 거래일' : dday)}</span>
+      </div>
+      ${conds}
+      ${spark(r.spark, { designDate: r.design_date, releaseLine: rl.max_close, haltLine: h.trigger })}
+      <div class="lines">
+        <div class="line"><span class="ic" style="color:var(--good)">▬</span><span class="tx">
+          다음 거래일 종가 <b>${fmt(rl.max_close)}원</b> 이하면 해제요건 충족
+          <span style="color:var(--muted)">(${({surge5:'5일 상승률',surge15:'15일 상승률',high15:'15일 최고가'})[rl.binding]} 기준)</span></span></div>
+        <div class="line"><span class="ic" style="color:var(--crit)">▬</span><span class="tx">
+          종가 <b>${fmt(h.trigger)}원</b> 이상이면 1일 매매거래정지
+          <span style="color:var(--muted)">(현재가 대비 ${pct(h.gap_pct)}, 2일 ${(h.ratio*100).toFixed(0)}%)</span></span></div>
+        ${altNote}
+        ${halted ? `<div class="line"><span class="ic" style="color:var(--crit)">■</span><span class="tx">
+          <b>${r.last_date}</b> 이후 ${r.halted_sessions}거래일간 거래 없음. 해제 판단은
+          <b>종목의 매매거래일</b> 기준이라 정지 기간만큼 미뤄진다.</span></div>`
+        : (r.stale ? `<div class="line"><span class="ic">·</span><span class="tx" style="color:var(--muted)">
+          기준일(${D.as_of})에 거래가 없어 ${r.last_date} 종가로 판정했다.</span></div>` : '')}
+      </div>
+    </div>
+  </article>`;
+}
+
+function preCard(r) {
+  const l = r.latest, w = r.window || {};
+  const left = w.left_sessions;
+  return `<article class="card">
+    <div class="chead">
+      <div class="crow1">
+        <span class="nm">${esc(r.name)}</span>
+        <span class="code">${esc(r.code)} · ${esc(r.market)}</span>
+        <span class="badge warn ml">! 지정예고</span>
+      </div>
+      <div class="crow2">
+        <span>예고 <b>${r.design_date}</b></span>
+        ${left != null ? `<span>유효기간 잔여 <b>${left}</b>거래일</span>` : ''}
+      </div>
+    </div>
+    <div class="cbody">
+      ${l ? `<table class="conds">
+        <tr><th>투자경고 지정요건 (주가 부분)</th><th class="num">현재</th><th class="num">해당 기준</th><th class="num"></th></tr>
+        ${condRow('3일 전날 대비', pct(l.r3), '≥100% 초단기', l.r3 == null ? null : l.r3 >= 1)}
+        ${condRow('5일 전날 대비', pct(l.r5), '≥60% 단기', l.r5 == null ? null : l.r5 >= .6)}
+        ${condRow('15일 전날 대비', pct(l.r15), '≥100% 중장기', l.r15 == null ? null : l.r15 >= 1)}
+        ${condRow('최근 15일 최고가', fmt(l.close), '필수요건', l.high15)}
+      </table>
+      ${spark(r.spark, { designDate: r.design_date })}`
+      : '<div class="empty">시세 없음</div>'}
+    </div>
+  </article>`;
+}
+
+function riskCard(r) { return warnCard(r); }
+
+/* ── 탭 렌더러 ── */
+function filterWarn(rows) {
+  return rows.filter(r => {
+    if (F.market !== '전체' && r.market !== F.market) return false;
+    if (F.status !== '전체') {
+      const m = { '해제요건 충족': 'release_ready', '미충족': 'blocked', '판단 전': 'before_judge' };
+      if (r.status !== m[F.status]) return false;
+    }
+    if (F.q && !(r.name + r.code).toLowerCase().includes(F.q.toLowerCase())) return false;
+    return true;
+  });
+}
+
+const ORDER = { release_ready: 0, blocked: 1, before_judge: 2, no_price: 3 };
+
+function viewWarning() {
+  const rows = filterWarn(D.warning).sort((a, b) =>
+    (ORDER[a.status] - ORDER[b.status]) || ((a.stale ? 1 : 0) - (b.stale ? 1 : 0)) ||
+    ((a.judge_start?.date || '9999') < (b.judge_start?.date || '9999') ? -1 : 1));
+  return `${filterBar(true)}
+    ${rows.length ? `<div class="grid">${rows.map(warnCard).join('')}</div>`
+                  : '<div class="empty">조건에 맞는 종목이 없다.</div>'}
+    <p class="note">해제요건 3가지에 <b>모두 미해당</b>인 매매거래일 다음 날 해제된다.
+      판단은 지정일부터 10일째 되는 날(지정일 +9 매매거래일)부터 시작한다.
+      지정사유는 공표되지 않아 공시일 시세로 역산해 추정한 값이며, 추정이 불확실한 건은 반대 기준도 함께 표시한다.</p>`;
+}
+
+function viewRisk() {
+  const rows = D.risk;
+  return rows.length ? `<div class="grid">${rows.map(riskCard).join('')}</div>`
+    : '<div class="empty">현재 투자위험종목으로 지정된 종목이 없다.</div>';
+}
+
+function viewPre() {
+  const rows = D.preannounce.filter(r =>
+    (F.market === '전체' || r.market === F.market) &&
+    (!F.q || (r.name + r.code).toLowerCase().includes(F.q.toLowerCase())));
+  return `${filterBar(false)}
+    <p class="note" style="margin:0 0 12px">지정예고 후 <b>10거래일 이내</b>에 지정요건을 충족하면
+      투자경고종목으로 지정된다. 아래 주가요건에 더해 <b>지수 대비 3~5배 상승</b> 조건을 함께 보며,
+      계좌 관여율 기반 불건전요건은 공표되지 않아 외부에서 판정할 수 없다.
+      이미 투자경고로 지정된 종목은 이 목록에서 빠진다.</p>
+    ${rows.length ? `<div class="grid">${rows.map(preCard).join('')}</div>`
+                  : '<div class="empty">최근 10거래일 내 투자경고 지정예고가 없다.</div>'}`;
+}
+
+function viewCaution() {
+  const c = D.caution;
+  const rows = c.rows.filter(r =>
+    (F.market === '전체' || r.market === F.market) &&
+    (!F.q || (r.name + r.code).toLowerCase().includes(F.q.toLowerCase())));
+  const rc = Object.entries(c.reason_counts)
+    .map(([k, v]) => `<span class="badge">${esc(k)} ${v}</span>`).join(' ');
+  const rep = c.repeat.filter(r =>
+    (F.market === '전체' || r.market === F.market) &&
+    (!F.q || (r.name + r.code).toLowerCase().includes(F.q.toLowerCase())));
+
+  return `${filterBar(false)}
+  <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px">${rc}</div>
+  <div class="scroller"><table class="data">
+    <thead><tr><th>종목</th><th>코드</th><th>시장</th><th>구분</th>
+      <th class="num">현재가</th><th>지정사유</th></tr></thead>
+    <tbody>${rows.map(r => `<tr>
+      <td><b>${esc(r.name)}</b></td><td class="num">${esc(r.code)}</td><td>${esc(r.market)}</td>
+      <td>${r.kind === '주권' ? '주권' : `<span style="color:var(--muted)">${esc(r.kind)}</span>`}</td>
+      <td class="num">${fmt(r.ref_price)}</td>
+      <td>${r.reasons.map(x => `<span class="badge">${esc(x)}</span>`).join(' ')}</td></tr>`).join('')}
+    </tbody></table></div>
+  <p class="note">투자주의는 <b>1매매거래일</b>만 지정된다. 위 목록은 지정일 <b>${c.date}</b> 기준이다.</p>
+
+  <h2 style="font-size:15px;margin:26px 0 4px">최근 15거래일 반복 지정</h2>
+  <p class="note" style="margin:0 0 10px">
+    최근 15일 중 <b>5일 이상</b> 투자주의로 지정되고 15일 전날 대비 <b>75% 이상</b> 상승하면
+    투자경고 지정예고 요건에 해당한다.</p>
+  <div class="scroller"><table class="data">
+    <thead><tr><th>종목</th><th>시장</th><th class="num">지정일수</th><th class="num">15일 상승률</th>
+      <th>15일 최고가</th><th>최근 지정</th><th>주요 사유</th></tr></thead>
+    <tbody>${rep.map(r => `<tr>
+      <td><b>${esc(r.name)}</b> <span class="code">${esc(r.code)}</span></td>
+      <td>${esc(r.market)}</td>
+      <td class="num"><b>${r.days}</b>${r.warn_threshold ? ' <span class="state hit">●</span>' : ''}</td>
+      <td class="num ${r.r15 >= 0.75 ? 'pos' : ''}">${r.r15 == null ? '–' : pct(r.r15)}</td>
+      <td>${r.high15 == null ? '–' : (r.high15 ? '<span class="state hit">● 해당</span>' : '<span class="state miss">○ 미해당</span>')}</td>
+      <td>${r.last_date}</td>
+      <td style="white-space:normal">${Object.entries(r.reasons).map(([k, v]) => `<span class="badge">${esc(k)} ${v}</span>`).join(' ')}</td>
+    </tr>`).join('')}</tbody></table></div>`;
+}
+
+function viewReleased() {
+  return `<div class="scroller"><table class="data">
+    <thead><tr><th>종목</th><th>시장</th><th>지정일</th><th>해제일</th>
+      <th class="num">지정 유지</th></tr></thead>
+    <tbody>${D.released.map(r => `<tr>
+      <td><b>${esc(r.name)}</b> <span class="code">${esc(r.code)}</span></td>
+      <td>${esc(r.market)}</td><td>${r.design_date}</td><td>${r.free_date}</td>
+      <td class="num">${r.held_sessions == null ? '–' : r.held_sessions + '거래일'}</td>
+    </tr>`).join('')}</tbody></table></div>
+    <p class="note">최근 해제 40건. 최단 <b>10거래일</b>(지정일 +9거래일에 최초 판정 → 다음 날 해제)이며,
+      실제 이력 ${D.verify.n}건 중 ${D.verify.gap_sessions_hist['10'] || 0}건이 정확히 10거래일이다.</p>`;
+}
+
+function viewRules() {
+  return `
+  <details class="rules" open><summary>투자경고 · 투자위험 지정해제 요건</summary><div class="in">
+    지정일부터 계산하여 10일째 되는 날(지정일을 1일째로 세므로 <b>지정일 +9 매매거래일</b>) 이후의 날 T 로서
+    아래 세 가지에 <b>모두 해당하지 않으면</b> 그 다음 매매거래일에 해제된다.
+    <ol style="margin:8px 0 0;padding-left:20px">
+      <li>T 종가가 T-5 종가보다 <b>60%</b>(불건전요건 계열 45%) 이상 상승</li>
+      <li>T 종가가 T-15 종가보다 <b>100%</b>(불건전요건 계열 75%) 이상 상승</li>
+      <li>T 종가가 <b>최근 15 매매거래일 종가 중 최고가</b></li>
+    </ol>
+    <div style="margin-top:8px">
+      급등형(60/100) = 초단기·단기·중장기급등, 투자주의종목 반복지정 ·
+      불건전형(45/75) = 단기·중장기·초장기상승 &amp; 불건전요건.
+      날짜는 모두 <b>해당 종목의 매매거래일</b> 기준이다.
+    </div>
+  </div></details>
+
+  <details class="rules"><summary>투자경고 지정예고 요건</summary><div class="in">
+    · 초단기급등 — 종가가 3일 전날보다 100% 이상 상승(코넥스 제외)<br>
+    · 단기급등 — 종가가 5일 전날보다 60% 이상 상승<br>
+    · 중장기급등 — 종가가 15일 전날보다 100% 이상 상승<br>
+    · 투자주의 반복지정 — 최근 15일 중 5일 이상 투자주의 지정 + 15일 전날 대비 75% 이상 상승<br>
+    · 단기상승&amp;불건전요건 — 5일 전날 대비 45% 이상 + 계좌 관여율 요건<br>
+    · 중장기상승&amp;불건전요건 — 15일 전날 대비 75% 이상 + 계좌 관여율 요건<br>
+    · 초장기상승&amp;불건전요건 — 최근 1년 지수 초과 상승률 200% 이상 + 관여율 요건<br>
+    <div style="margin-top:8px">모두 <b>당일 종가가 최근 15일 종가 중 최고가</b>인 경우에 한하며,
+      시가총액 상위 100위 이내 종목은 지정예고하지 않는다.
+      지정은 예고일부터 10일째 되는 날 이내에 지정요건(주가요건 + 지수 대비 3~5배 상승)을 충족할 때 이뤄진다.</div>
+  </div></details>
+
+  <details class="rules"><summary>매매거래정지 요건</summary><div class="in">
+    투자경고 지정 이후 특정일의 종가가 <b>지정일 전일</b> 및 <b>직전 매매거래일</b>보다 높으면서
+    2일간 상승률이 <b>40%</b>(코넥스 20%) 이상이면 그 다음 매매거래일 1일간 매매거래가 정지된다.
+    한 번 정지된 종목은 투자경고가 해제되기 전까지 다시 적용되지 않는다.<br><br>
+    투자위험은 지정일 당일 1일간 정지되며, 지정 이후 종가가 지정일 전일·직전 거래일보다
+    <b>3일 연속</b> 높으면 다시 1일 정지된다.
+  </div></details>
+
+  <details class="rules"><summary>투자주의 지정요건 (요약)</summary><div class="in">
+    소수계좌 거래집중 · 특정계좌(군) 매매관여 과다 · 종가급변 · 상한가잔량 상위 ·
+    단일계좌 거래량 상위 · 15일간 상승종목의 소수계좌 매수관여 과다 · 15일간 예방조치 과다 ·
+    풍문관여과다 · 스팸관여과다 · 투자경고 지정예고 · 투자경고 지정해제.
+    <b>1매매거래일</b>만 지정되며 매수 시 위탁증거금 100% 같은 제약은 없다.
+  </div></details>
+
+  <details class="rules"><summary>이 대시보드의 계산 방식과 한계</summary><div class="in">
+    · 지정·해제 내역은 KRX 시장감시위원회(moc.krx.co.kr), 종가는 네이버 금융 <b>수정주가</b>다.
+      권리락·액면분할이 낀 구간은 거래소 실제 판정과 어긋날 수 있다.<br>
+    · 매매거래일은 종목별 시세 데이터에서 거래량 0인 날을 제외해 만든다.
+      거래정지가 섞인 종목은 오차가 생길 수 있다.<br>
+    · <b>지정사유는 공표되지 않는다.</b> 공시일 시세를 요건에 역산해 추정하며,
+      추정 신뢰도가 낮으면 반대 계열 기준도 함께 표시한다.<br>
+    · 계좌 관여율 기반 불건전요건은 외부에서 확인할 수 없다.<br>
+    · 최근 6개월 실제 해제 이력 <b>289건</b> 대조 시 예측 해제일이 실제와 일치한 건이
+      <b>255건(88%)</b>이다. 오차는 지정 기간 중 거래정지를 겪은 종목에 몰린다.<br>
+    · 투자 판단의 근거로 쓰기 위한 것이 아니며 원본 데이터의 정확성을 보증하지 않는다.
+  </div></details>`;
+}
+
+function filterBar(withStatus) {
+  const seg = (name, opts, cur) => `<div class="seg" data-f="${name}">` +
+    opts.map(o => `<button aria-pressed="${o === cur}" data-v="${esc(o)}">${esc(o)}</button>`).join('') + '</div>';
+  return `<div class="filters">
+    <label class="flab">시장</label>${seg('market', ['전체', '코스피', '코스닥', '코넥스'], F.market)}
+    ${withStatus ? `<label class="flab">상태</label>${seg('status', ['전체', '해제요건 충족', '미충족', '판단 전'], F.status)}` : ''}
+    <input class="search" id="q" placeholder="종목명 · 코드" value="${esc(F.q)}" />
+  </div>`;
+}
+
+const TABS = [
+  ['warning', '투자경고', d => d.stats.warning, viewWarning],
+  ['pre', '지정예고', d => d.stats.preannounce, viewPre],
+  ['caution', '투자주의', d => d.stats.caution, viewCaution],
+  ['risk', '투자위험', d => d.stats.risk, viewRisk],
+  ['released', '해제 이력', d => d.released.length, viewReleased],
+  ['rules', '규정', () => null, viewRules],
+];
+
+function render() {
+  if (!TABS.some(t => t[0] === TAB)) TAB = 'warning';
+  $('#tabs').innerHTML = TABS.map(([k, label, cnt]) =>
+    `<button role="tab" aria-selected="${TAB === k}" data-t="${k}">${label}${
+      cnt(D) != null ? `<span class="cnt">${cnt(D)}</span>` : ''}</button>`).join('');
+  $('#view').innerHTML = (TABS.find(t => t[0] === TAB)[3])();
+  bindSpark();
+}
+
+function tiles() {
+  const s = D.stats;
+  const t = (k, v, n, dot) => `<div class="tile"><div class="k">${dot ? `<span class="dot ${dot}"></span>` : ''}${k}</div>
+    <div class="v">${v}</div><div class="n">${n}</div></div>`;
+  $('#tiles').innerHTML =
+    t('투자경고', s.warning, '현재 지정', 'serious') +
+    t('해제요건 충족', s.release_ready, `${D.next_session} 해제 예상`, 'good') +
+    t('판단기간 전', s.before_judge, s.halted ? `거래정지 ${s.halted}종목 포함` : '지정 +9거래일 대기', 'mute') +
+    t('투자위험', s.risk, '최고 단계', 'crit') +
+    t('지정예고', s.preannounce, '10거래일 내 승격 가능', 'warn') +
+    t('투자주의', s.caution, `${D.caution.date} 지정`, 'mute');
+}
+
+/* ── 스파크라인 호버 ── */
+function bindSpark() {
+  const tt = $('#tt');
+  $('#view').querySelectorAll('svg.spark').forEach(svg => {
+    let pts; try { pts = JSON.parse(svg.dataset.pts); } catch { return; }
+    const W = +svg.dataset.w, PL = +svg.dataset.pl, PR = +svg.dataset.pr;
+    svg.addEventListener('pointermove', e => {
+      const b = svg.getBoundingClientRect();
+      const vx = (e.clientX - b.left) / b.width * W;
+      const i = Math.max(0, Math.min(pts.length - 1,
+        Math.round((vx - PL) / ((W - PL - PR) / (pts.length - 1)))));
+      tt.innerHTML = `<b>${pts[i].d}</b> · ${fmt(pts[i].c)}원`;
+      tt.style.opacity = 1;
+      tt.style.left = Math.min(e.clientX + 12, innerWidth - 130) + 'px';
+      tt.style.top = (e.clientY - 34) + 'px';
+    });
+    svg.addEventListener('pointerleave', () => { tt.style.opacity = 0; });
+  });
+}
+
+/* ── 이벤트 ── */
+document.addEventListener('click', e => {
+  const tab = e.target.closest('[data-t]');
+  if (tab) { TAB = tab.dataset.t; history.replaceState(null, '', '#' + TAB); render(); return; }
+  const seg = e.target.closest('.seg button');
+  if (seg) { F[seg.parentElement.dataset.f] = seg.dataset.v; render(); return; }
+  if (e.target.id === 'theme') {
+    const cur = document.documentElement.getAttribute('data-theme');
+    const next = cur === 'dark' ? 'light' : cur === 'light' ? '' : 'dark';
+    next ? document.documentElement.setAttribute('data-theme', next)
+         : document.documentElement.removeAttribute('data-theme');
+    try { localStorage.setItem('mad-theme', next); } catch {}
+  }
+});
+document.addEventListener('input', e => {
+  if (e.target.id === 'q') {
+    F.q = e.target.value;
+    const pos = e.target.selectionStart; render();
+    const el = $('#q'); if (el) { el.focus(); el.setSelectionRange(pos, pos); }
+  }
+});
+
+try { const t = localStorage.getItem('mad-theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch {}
+
+(async function () {
+  try {
+    D = window.__DATA__ || await (await fetch('data.json?_=' + Date.now())).json();
+  } catch (err) {
+    $('#meta').textContent = 'data.json 을 읽지 못했다 — scripts/build.py 를 먼저 실행할 것.';
+    return;
+  }
+  $('#meta').innerHTML = `기준일 <b>${D.as_of}</b> 종가 · 다음 매매거래일 <b>${D.next_session}</b>
+    · 갱신 ${D.generated_at} · 출처 KRX 시장감시위원회`;
+  tiles(); render();
+})();
+</script>
+</body>
+</html>
