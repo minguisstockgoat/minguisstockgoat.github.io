@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-30 20:10",
+ "generated_at": "2026-10-01 07:20",
  "as_of": "2026-09-30",
  "next_session": "2026-10-01",
  "warning": [
@@ -12,7 +12,7 @@
    "act_date": "2026-09-29",
    "design_date": "2026-09-30",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 3400.0,
    "price_ok": true,
    "last_date": "2026-09-30",
    "stale": false,
@@ -303,7 +303,7 @@
    "act_date": "2026-09-29",
    "design_date": "2026-09-30",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 526000.0,
    "price_ok": true,
    "last_date": "2026-09-30",
    "stale": false,
@@ -582,7 +582,7 @@
    "act_date": "2026-09-29",
    "design_date": "2026-09-30",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 53800.0,
    "price_ok": true,
    "last_date": "2026-09-30",
    "stale": false,
@@ -861,7 +861,7 @@
    "act_date": "2026-09-29",
    "design_date": "2026-09-30",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 16430.0,
    "price_ok": true,
    "last_date": "2026-09-30",
    "stale": false,
@@ -1140,7 +1140,7 @@
    "act_date": "2026-09-28",
    "design_date": "2026-09-29",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 3435.0,
    "price_ok": true,
    "last_date": "2026-09-30",
    "stale": false,
@@ -1419,7 +1419,7 @@
    "act_date": "2026-09-23",
    "design_date": "2026-09-28",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 16730.0,
    "price_ok": true,
    "last_date": "2026-09-29",
    "stale": true,
@@ -1710,7 +1710,7 @@
    "act_date": "2026-09-23",
    "design_date": "2026-09-28",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 148500.0,
    "price_ok": true,
    "last_date": "2026-09-30",
    "stale": false,
@@ -1989,7 +1989,7 @@
    "act_date": "2026-09-23",
    "design_date": "2026-09-28",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 3950.0,
    "price_ok": true,
    "last_date": "2026-09-30",
    "stale": false,
@@ -2268,7 +2268,7 @@
    "act_date": "2026-09-22",
    "design_date": "2026-09-23",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 2690.0,
    "price_ok": true,
    "last_date": "2026-09-30",
    "stale": false,
@@ -2547,7 +2547,7 @@
    "act_date": "2026-09-22",
    "design_date": "2026-09-23",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 31950.0,
    "price_ok": true,
    "last_date": "2026-09-30",
    "stale": false,
@@ -2832,7 +2832,7 @@
    "act_date": "2026-09-22",
    "design_date": "2026-09-23",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 127100.0,
    "price_ok": true,
    "last_date": "2026-09-30",
    "stale": false,
@@ -3111,7 +3111,7 @@
    "act_date": "2026-09-21",
    "design_date": "2026-09-22",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 9560.0,
    "price_ok": true,
    "last_date": "2026-09-30",
    "stale": false,
@@ -3390,7 +3390,7 @@
    "act_date": "2026-09-21",
    "design_date": "2026-09-22",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 2780.0,
    "price_ok": true,
    "last_date": "2026-09-30",
    "stale": false,
@@ -3669,7 +3669,7 @@
    "act_date": "2026-09-18",
    "design_date": "2026-09-21",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 1377.0,
    "price_ok": true,
    "last_date": "2026-09-30",
    "stale": false,
@@ -3948,7 +3948,7 @@
    "act_date": "2026-09-17",
    "design_date": "2026-09-18",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 11850.0,
    "price_ok": true,
    "last_date": "2026-09-30",
    "stale": false,
@@ -4227,7 +4227,7 @@
    "act_date": "2026-09-17",
    "design_date": "2026-09-18",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 2860.0,
    "price_ok": true,
    "last_date": "2026-09-30",
    "stale": false,
@@ -4506,7 +4506,7 @@
    "act_date": "2026-09-16",
    "design_date": "2026-09-17",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 2890.0,
    "price_ok": true,
    "last_date": "2026-09-30",
    "stale": false,
@@ -4785,7 +4785,7 @@
    "act_date": "2026-09-16",
    "design_date": "2026-09-17",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 4115.0,
    "price_ok": true,
    "last_date": "2026-09-30",
    "stale": false,
@@ -5064,7 +5064,7 @@
    "act_date": "2026-09-16",
    "design_date": "2026-09-17",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 2475.0,
    "price_ok": true,
    "last_date": "2026-09-30",
    "stale": false,
@@ -5343,7 +5343,7 @@
    "act_date": "2026-09-16",
    "design_date": "2026-09-17",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 91800.0,
    "price_ok": true,
    "last_date": "2026-09-30",
    "stale": false,
@@ -5628,7 +5628,7 @@
    "act_date": "2026-09-16",
    "design_date": "2026-09-17",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 6500.0,
    "price_ok": true,
    "last_date": "2026-09-30",
    "stale": false,
@@ -5907,7 +5907,7 @@
    "act_date": "2026-09-15",
    "design_date": "2026-09-16",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 178600.0,
    "price_ok": true,
    "last_date": "2026-09-30",
    "stale": false,
@@ -6179,267 +6179,6 @@
   },
   {
    "tier": "warning",
-   "code": "187660",
-   "name": "페니트리움바이오",
-   "market": "코스닥",
-   "reason": null,
-   "act_date": "2026-09-14",
-   "design_date": "2026-09-15",
-   "free_date": null,
-   "ref_price": null,
-   "price_ok": true,
-   "last_date": "2026-09-30",
-   "stale": false,
-   "halted_sessions": 0,
-   "halted": false,
-   "group": {
-    "key": "A",
-    "label": "급등형",
-    "th5": 0.6,
-    "th15": 1.0,
-    "note": "초단기·단기·중장기급등 / 투자주의종목 반복지정",
-    "group": "A",
-    "reason": "중장기급등",
-    "confidence": "high",
-    "caution_days_15": 2
-   },
-   "sessions_since_design": 10,
-   "judge_start": {
-    "date": "2026-09-30",
-    "remaining_sessions": 0,
-    "projected": false,
-    "reached": true,
-    "earliest_release": "2026-10-01"
-   },
-   "latest": {
-    "close": 7700,
-    "r5": 0.203125,
-    "r15": 0.19010819165378678,
-    "base5": 6400,
-    "base15": 6470,
-    "high15_price": 8320,
-    "window": 15,
-    "cond": {
-     "surge5": false,
-     "surge15": false,
-     "high15": false
-    },
-    "hit": [],
-    "releasable": true,
-    "partial": false,
-    "date": "2026-09-30",
-    "chg_pct": 0.028037383177569986
-   },
-   "release_line": {
-    "caps": {
-     "surge5": 10608,
-     "surge15": 11420,
-     "high15": 8320
-    },
-    "binding": "high15",
-    "max_close": 8310,
-    "cap": 8320
-   },
-   "base_prev": {
-    "date": "2026-09-14",
-    "close": 8320
-   },
-   "halt": {
-    "trigger": 10490,
-    "ratio": 0.4,
-    "gap_pct": 0.3623376623376624
-   },
-   "since_design_pct": -0.07451923076923073,
-   "next_session": "2026-10-01",
-   "confirmed_release": "2026-10-01",
-   "status": "release_confirmed",
-   "expected_release_date": "2026-10-01",
-   "blockers": [],
-   "spark": [
-    {
-     "d": "2026-07-27",
-     "c": 4770
-    },
-    {
-     "d": "2026-07-28",
-     "c": 4140
-    },
-    {
-     "d": "2026-07-29",
-     "c": 3850
-    },
-    {
-     "d": "2026-07-30",
-     "c": 3740
-    },
-    {
-     "d": "2026-07-31",
-     "c": 4260
-    },
-    {
-     "d": "2026-08-03",
-     "c": 4275
-    },
-    {
-     "d": "2026-08-04",
-     "c": 4085
-    },
-    {
-     "d": "2026-08-05",
-     "c": 4090
-    },
-    {
-     "d": "2026-08-06",
-     "c": 3965
-    },
-    {
-     "d": "2026-08-07",
-     "c": 3870
-    },
-    {
-     "d": "2026-08-10",
-     "c": 4225
-    },
-    {
-     "d": "2026-08-11",
-     "c": 4410
-    },
-    {
-     "d": "2026-08-12",
-     "c": 4350
-    },
-    {
-     "d": "2026-08-13",
-     "c": 4920
-    },
-    {
-     "d": "2026-08-14",
-     "c": 4330
-    },
-    {
-     "d": "2026-08-18",
-     "c": 4085
-    },
-    {
-     "d": "2026-08-19",
-     "c": 3815
-    },
-    {
-     "d": "2026-08-20",
-     "c": 3700
-    },
-    {
-     "d": "2026-08-21",
-     "c": 3350
-    },
-    {
-     "d": "2026-08-24",
-     "c": 3415
-    },
-    {
-     "d": "2026-08-25",
-     "c": 3490
-    },
-    {
-     "d": "2026-08-26",
-     "c": 3850
-    },
-    {
-     "d": "2026-08-27",
-     "c": 3980
-    },
-    {
-     "d": "2026-08-28",
-     "c": 4230
-    },
-    {
-     "d": "2026-08-31",
-     "c": 4950
-    },
-    {
-     "d": "2026-09-01",
-     "c": 4930
-    },
-    {
-     "d": "2026-09-02",
-     "c": 4760
-    },
-    {
-     "d": "2026-09-03",
-     "c": 5100
-    },
-    {
-     "d": "2026-09-04",
-     "c": 5850
-    },
-    {
-     "d": "2026-09-07",
-     "c": 6470
-    },
-    {
-     "d": "2026-09-08",
-     "c": 5710
-    },
-    {
-     "d": "2026-09-09",
-     "c": 7420
-    },
-    {
-     "d": "2026-09-10",
-     "c": 8300
-    },
-    {
-     "d": "2026-09-11",
-     "c": 8290
-    },
-    {
-     "d": "2026-09-14",
-     "c": 8320
-    },
-    {
-     "d": "2026-09-15",
-     "c": 7800
-    },
-    {
-     "d": "2026-09-16",
-     "c": 6740
-    },
-    {
-     "d": "2026-09-17",
-     "c": 6480
-    },
-    {
-     "d": "2026-09-18",
-     "c": 6530
-    },
-    {
-     "d": "2026-09-21",
-     "c": 6400
-    },
-    {
-     "d": "2026-09-22",
-     "c": 6630
-    },
-    {
-     "d": "2026-09-23",
-     "c": 6630
-    },
-    {
-     "d": "2026-09-28",
-     "c": 6840
-    },
-    {
-     "d": "2026-09-29",
-     "c": 7490
-    },
-    {
-     "d": "2026-09-30",
-     "c": 7700
-    }
-   ]
-  },
-  {
-   "tier": "warning",
    "code": "073190",
    "name": "듀오백",
    "market": "코스닥",
@@ -6447,7 +6186,7 @@
    "act_date": "2026-08-10",
    "design_date": "2026-08-11",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 1622.0,
    "price_ok": true,
    "last_date": "2026-08-19",
    "stale": true,
@@ -6728,7 +6467,7 @@
    "act_date": "2026-09-16",
    "design_date": "2026-09-18",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 2000.0,
    "price_ok": true,
    "last_date": "2026-09-30",
    "stale": false,
@@ -7015,7 +6754,7 @@
    "act_date": "2026-09-30",
    "design_date": "2026-10-01",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 11280.0,
    "latest": {
     "date": "2026-09-30",
     "close": 11150,
@@ -7220,7 +6959,7 @@
    "act_date": "2026-09-30",
    "design_date": "2026-10-01",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 598.0,
    "latest": {
     "date": "2026-09-30",
     "close": 598,
@@ -7425,7 +7164,7 @@
    "act_date": "2026-09-29",
    "design_date": "2026-09-30",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 11770.0,
    "latest": {
     "date": "2026-09-30",
     "close": 11630,
@@ -7630,7 +7369,7 @@
    "act_date": "2026-09-29",
    "design_date": "2026-09-30",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 7980.0,
    "latest": {
     "date": "2026-09-30",
     "close": 7980,
@@ -7835,7 +7574,7 @@
    "act_date": "2026-09-28",
    "design_date": "2026-09-29",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 6440.0,
    "latest": {
     "date": "2026-09-30",
     "close": 6420,
@@ -8040,7 +7779,7 @@
    "act_date": "2026-09-23",
    "design_date": "2026-09-28",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 29350.0,
    "latest": {
     "date": "2026-09-30",
     "close": 29450,
@@ -8245,7 +7984,7 @@
    "act_date": "2026-09-23",
    "design_date": "2026-09-28",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 5100.0,
    "latest": {
     "date": "2026-09-30",
     "close": 5130,
@@ -8450,7 +8189,7 @@
    "act_date": "2026-09-23",
    "design_date": "2026-09-28",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 26000.0,
    "latest": {
     "date": "2026-09-30",
     "close": 25900,
@@ -8595,7 +8334,7 @@
    "act_date": "2026-09-22",
    "design_date": "2026-09-23",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 26450.0,
    "latest": {
     "date": "2026-09-30",
     "close": 27350,
@@ -8800,7 +8539,7 @@
    "act_date": "2026-09-18",
    "design_date": "2026-09-21",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 15180.0,
    "latest": {
     "date": "2026-09-30",
     "close": 15060,
@@ -9005,7 +8744,7 @@
    "act_date": "2026-09-18",
    "design_date": "2026-09-21",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 1708.0,
    "latest": {
     "date": "2026-09-30",
     "close": 1690,
@@ -9210,7 +8949,7 @@
    "act_date": "2026-09-17",
    "design_date": "2026-09-18",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 3410.0,
    "latest": {
     "date": "2026-09-30",
     "close": 3400,
@@ -9415,7 +9154,7 @@
    "act_date": "2026-09-17",
    "design_date": "2026-09-18",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 3150.0,
    "latest": {
     "date": "2026-09-30",
     "close": 3160,
@@ -9620,7 +9359,7 @@
    "act_date": "2026-09-17",
    "design_date": "2026-09-18",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 3735.0,
    "latest": {
     "date": "2026-09-30",
     "close": 3745,
@@ -9825,7 +9564,7 @@
    "act_date": "2026-09-17",
    "design_date": "2026-09-18",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 10800.0,
    "latest": {
     "date": "2026-09-30",
     "close": 10730,
@@ -10030,7 +9769,7 @@
    "act_date": "2026-09-15",
    "design_date": "2026-09-16",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 8570.0,
    "latest": {
     "date": "2026-09-30",
     "close": 8650,
@@ -10235,7 +9974,7 @@
    "act_date": "2026-09-14",
    "design_date": "2026-09-15",
    "free_date": null,
-   "ref_price": null,
+   "ref_price": 14810.0,
    "latest": {
     "date": "2026-09-30",
     "close": 14660,
@@ -10443,7 +10182,7 @@
     "code": "390110",
     "name": "애니메디솔루션",
     "market": "코넥스",
-    "ref_price": null,
+    "ref_price": 598.0,
     "act_date": "2026-09-30",
     "design_date": "2026-10-01",
     "kind": "주권"
@@ -10455,7 +10194,7 @@
     "code": "202960",
     "name": "판도라티비",
     "market": "코넥스",
-    "ref_price": null,
+    "ref_price": 583.0,
     "act_date": "2026-09-30",
     "design_date": "2026-10-01",
     "kind": "주권"
@@ -10467,7 +10206,7 @@
     "code": "036540",
     "name": "SFA반도체",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 10780.0,
     "act_date": "2026-09-30",
     "design_date": "2026-10-01",
     "kind": "주권"
@@ -10479,7 +10218,7 @@
     "code": "060480",
     "name": "국일신동",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 1250.0,
     "act_date": "2026-09-30",
     "design_date": "2026-10-01",
     "kind": "주권"
@@ -10491,7 +10230,7 @@
     "code": "383930",
     "name": "디티앤씨알오",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 1937.0,
     "act_date": "2026-09-30",
     "design_date": "2026-10-01",
     "kind": "주권"
@@ -10503,7 +10242,7 @@
     "code": "050090",
     "name": "비케이홀딩스",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 608.0,
     "act_date": "2026-09-30",
     "design_date": "2026-10-01",
     "kind": "주권"
@@ -10516,7 +10255,7 @@
     "code": "270520",
     "name": "앱튼",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 810.0,
     "act_date": "2026-09-30",
     "design_date": "2026-10-01",
     "kind": "주권"
@@ -10528,7 +10267,7 @@
     "code": "060900",
     "name": "에이전트AI",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 2205.0,
     "act_date": "2026-09-30",
     "design_date": "2026-10-01",
     "kind": "주권"
@@ -10540,7 +10279,7 @@
     "code": "250930",
     "name": "예선테크",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 479.0,
     "act_date": "2026-09-30",
     "design_date": "2026-10-01",
     "kind": "주권"
@@ -10552,7 +10291,7 @@
     "code": "079950",
     "name": "인베니아",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 1376.0,
     "act_date": "2026-09-30",
     "design_date": "2026-10-01",
     "kind": "주권"
@@ -10565,7 +10304,7 @@
     "code": "291650",
     "name": "츌립앤사이언스",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 2245.0,
     "act_date": "2026-09-30",
     "design_date": "2026-10-01",
     "kind": "주권"
@@ -10579,7 +10318,7 @@
     "code": "360350",
     "name": "코셈",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 11280.0,
     "act_date": "2026-09-30",
     "design_date": "2026-10-01",
     "kind": "주권"
@@ -10591,7 +10330,7 @@
     "code": "187660",
     "name": "페니트리움바이오",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 7700.0,
     "act_date": "2026-09-30",
     "design_date": "2026-10-01",
     "kind": "주권"
@@ -10603,7 +10342,7 @@
     "code": "058450",
     "name": "한주에이알티",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 559.0,
     "act_date": "2026-09-30",
     "design_date": "2026-10-01",
     "kind": "주권"
@@ -10616,7 +10355,7 @@
     "code": "002680",
     "name": "한탑",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 3490.0,
     "act_date": "2026-09-30",
     "design_date": "2026-10-01",
     "kind": "주권"
@@ -10628,7 +10367,7 @@
     "code": "011080",
     "name": "형지I&C",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 362.0,
     "act_date": "2026-09-30",
     "design_date": "2026-10-01",
     "kind": "주권"
@@ -10640,7 +10379,7 @@
     "code": "002820",
     "name": "SUN&L",
     "market": "코스피",
-    "ref_price": null,
+    "ref_price": 1076.0,
     "act_date": "2026-09-30",
     "design_date": "2026-10-01",
     "kind": "주권"
@@ -10652,7 +10391,7 @@
     "code": "52M376",
     "name": "미래M376삼성전자콜",
     "market": "코스피",
-    "ref_price": null,
+    "ref_price": 290.0,
     "act_date": "2026-09-30",
     "design_date": "2026-10-01",
     "kind": "ELW"
@@ -10664,7 +10403,7 @@
     "code": "52M764",
     "name": "미래M764SK하이닉콜",
     "market": "코스피",
-    "ref_price": null,
+    "ref_price": 10.0,
     "act_date": "2026-09-30",
     "design_date": "2026-10-01",
     "kind": "ELW"
@@ -10676,7 +10415,7 @@
     "code": "003030",
     "name": "세아제강지주",
     "market": "코스피",
-    "ref_price": null,
+    "ref_price": 117600.0,
     "act_date": "2026-09-30",
     "design_date": "2026-10-01",
     "kind": "주권"
@@ -10688,7 +10427,7 @@
     "code": "011090",
     "name": "에넥스",
     "market": "코스피",
-    "ref_price": null,
+    "ref_price": 1425.0,
     "act_date": "2026-09-30",
     "design_date": "2026-10-01",
     "kind": "주권"
@@ -10700,7 +10439,7 @@
     "code": "57MH98",
     "name": "한국MH98삼성전자콜",
     "market": "코스피",
-    "ref_price": null,
+    "ref_price": 310.0,
     "act_date": "2026-09-30",
     "design_date": "2026-10-01",
     "kind": "ELW"
@@ -10720,7 +10459,7 @@
     "code": "058450",
     "name": "한주에이알티",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 559.0,
     "days": 9,
     "last_date": "2026-10-01",
     "reasons": {
@@ -10737,7 +10476,7 @@
     "code": "301300",
     "name": "바이브컴퍼니",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 1492.0,
     "days": 6,
     "last_date": "2026-09-23",
     "reasons": {
@@ -10753,7 +10492,7 @@
     "code": "360350",
     "name": "코셈",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 11280.0,
     "days": 6,
     "last_date": "2026-10-01",
     "reasons": {
@@ -10772,7 +10511,7 @@
     "code": "036540",
     "name": "SFA반도체",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 10780.0,
     "days": 5,
     "last_date": "2026-10-01",
     "reasons": {
@@ -10788,7 +10527,7 @@
     "code": "109670",
     "name": "씨싸이트",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 16730.0,
     "days": 5,
     "last_date": "2026-09-23",
     "reasons": {
@@ -10806,7 +10545,7 @@
     "code": "101000",
     "name": "KS인더스트리",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 1443.0,
     "days": 4,
     "last_date": "2026-09-30",
     "reasons": {
@@ -10820,7 +10559,7 @@
     "code": "199730",
     "name": "바이오인프라",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 678.0,
     "days": 4,
     "last_date": "2026-09-21",
     "reasons": {
@@ -10832,7 +10571,7 @@
     "code": "127710",
     "name": "아시아경제",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 1419.0,
     "days": 4,
     "last_date": "2026-09-30",
     "reasons": {
@@ -10845,7 +10584,7 @@
     "code": "250930",
     "name": "예선테크",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 479.0,
     "days": 4,
     "last_date": "2026-10-01",
     "reasons": {
@@ -10857,7 +10596,7 @@
     "code": "240600",
     "name": "유진테크놀로지",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 937.0,
     "days": 4,
     "last_date": "2026-09-30",
     "reasons": {
@@ -10869,7 +10608,7 @@
     "code": "291650",
     "name": "츌립앤사이언스",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 2245.0,
     "days": 4,
     "last_date": "2026-10-01",
     "reasons": {
@@ -10882,7 +10621,7 @@
     "code": "020120",
     "name": "키다리스튜디오",
     "market": "코스피",
-    "ref_price": null,
+    "ref_price": 8420.0,
     "days": 4,
     "last_date": "2026-09-29",
     "reasons": {
@@ -10896,7 +10635,7 @@
     "code": "134580",
     "name": "탑코미디어",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 3025.0,
     "days": 4,
     "last_date": "2026-09-15",
     "reasons": {
@@ -10909,7 +10648,7 @@
     "code": "015590",
     "name": "DKME",
     "market": "코스피",
-    "ref_price": null,
+    "ref_price": 2280.0,
     "days": 3,
     "last_date": "2026-09-11",
     "reasons": {
@@ -10921,7 +10660,7 @@
     "code": "002820",
     "name": "SUN&L",
     "market": "코스피",
-    "ref_price": null,
+    "ref_price": 1076.0,
     "days": 3,
     "last_date": "2026-10-01",
     "reasons": {
@@ -10933,7 +10672,7 @@
     "code": "224060",
     "name": "더코디",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 4655.0,
     "days": 3,
     "last_date": "2026-09-29",
     "reasons": {
@@ -10947,7 +10686,7 @@
     "code": "060570",
     "name": "드림어스컴퍼니",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 4995.0,
     "days": 3,
     "last_date": "2026-09-15",
     "reasons": {
@@ -10960,7 +10699,7 @@
     "code": "052710",
     "name": "아모텍",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 18410.0,
     "days": 3,
     "last_date": "2026-09-29",
     "reasons": {
@@ -10972,7 +10711,7 @@
     "code": "052860",
     "name": "아이앤씨",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 7310.0,
     "days": 3,
     "last_date": "2026-09-30",
     "reasons": {
@@ -10986,7 +10725,7 @@
     "code": "092600",
     "name": "앤씨앤",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 2650.0,
     "days": 3,
     "last_date": "2026-09-21",
     "reasons": {
@@ -10999,7 +10738,7 @@
     "code": "270520",
     "name": "앱튼",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 810.0,
     "days": 3,
     "last_date": "2026-10-01",
     "reasons": {
@@ -11012,7 +10751,7 @@
     "code": "043340",
     "name": "에쎈테크",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 615.0,
     "days": 3,
     "last_date": "2026-09-29",
     "reasons": {
@@ -11024,7 +10763,7 @@
     "code": "060900",
     "name": "에이전트AI",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 2205.0,
     "days": 3,
     "last_date": "2026-10-01",
     "reasons": {
@@ -11037,7 +10776,7 @@
     "code": "011300",
     "name": "우성머티리얼스",
     "market": "코스피",
-    "ref_price": null,
+    "ref_price": 2805.0,
     "days": 3,
     "last_date": "2026-09-29",
     "reasons": {
@@ -11049,7 +10788,7 @@
     "code": "079950",
     "name": "인베니아",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 1376.0,
     "days": 3,
     "last_date": "2026-10-01",
     "reasons": {
@@ -11062,7 +10801,7 @@
     "code": "071200",
     "name": "인피니트헬스케어",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 11850.0,
     "days": 3,
     "last_date": "2026-09-17",
     "reasons": {
@@ -11077,7 +10816,7 @@
     "code": "079190",
     "name": "케스피온",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 1272.0,
     "days": 3,
     "last_date": "2026-09-18",
     "reasons": {
@@ -11090,7 +10829,7 @@
     "code": "431190",
     "name": "케이쓰리아이",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 4380.0,
     "days": 3,
     "last_date": "2026-09-16",
     "reasons": {
@@ -11102,7 +10841,7 @@
     "code": "900100",
     "name": "파이온엑스",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 1096.0,
     "days": 3,
     "last_date": "2026-09-23",
     "reasons": {
@@ -11114,7 +10853,7 @@
     "code": "187660",
     "name": "페니트리움바이오",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 7700.0,
     "days": 3,
     "last_date": "2026-10-01",
     "reasons": {
@@ -11128,7 +10867,7 @@
     "code": "291810",
     "name": "핀텔",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 409.0,
     "days": 3,
     "last_date": "2026-09-15",
     "reasons": {
@@ -11141,7 +10880,7 @@
     "code": "011080",
     "name": "형지I&C",
     "market": "코스닥",
-    "ref_price": null,
+    "ref_price": 362.0,
     "days": 3,
     "last_date": "2026-10-01",
     "reasons": {
@@ -11155,6 +10894,18 @@
  "released": [
   {
    "tier": "warning",
+   "code": "187660",
+   "name": "페니트리움바이오",
+   "market": "코스닥",
+   "reason": null,
+   "act_date": "2026-09-14",
+   "design_date": "2026-09-15",
+   "free_date": "2026-10-01",
+   "ref_price": 7700.0,
+   "held_sessions": null
+  },
+  {
+   "tier": "warning",
    "code": "101000",
    "name": "KS인더스트리",
    "market": "코스닥",
@@ -11162,7 +10913,7 @@
    "act_date": "2026-09-10",
    "design_date": "2026-09-11",
    "free_date": "2026-09-30",
-   "ref_price": null,
+   "ref_price": 1443.0,
    "held_sessions": 11
   },
   {
@@ -11174,7 +10925,7 @@
    "act_date": "2026-09-09",
    "design_date": "2026-09-10",
    "free_date": "2026-09-29",
-   "ref_price": null,
+   "ref_price": 7920.0,
    "held_sessions": 11
   },
   {
@@ -11186,7 +10937,7 @@
    "act_date": "2026-09-10",
    "design_date": "2026-09-11",
    "free_date": "2026-09-29",
-   "ref_price": null,
+   "ref_price": 8420.0,
    "held_sessions": 10
   },
   {
@@ -11198,7 +10949,7 @@
    "act_date": "2026-09-10",
    "design_date": "2026-09-11",
    "free_date": "2026-09-29",
-   "ref_price": null,
+   "ref_price": 5760.0,
    "held_sessions": 10
   },
   {
@@ -11210,7 +10961,7 @@
    "act_date": "2026-09-10",
    "design_date": "2026-09-11",
    "free_date": "2026-09-29",
-   "ref_price": null,
+   "ref_price": 167700.0,
    "held_sessions": 10
   },
   {
@@ -11222,7 +10973,7 @@
    "act_date": "2026-09-10",
    "design_date": "2026-09-11",
    "free_date": "2026-09-29",
-   "ref_price": null,
+   "ref_price": 289000.0,
    "held_sessions": 10
   },
   {
@@ -11234,7 +10985,7 @@
    "act_date": "2026-09-10",
    "design_date": "2026-09-11",
    "free_date": "2026-09-29",
-   "ref_price": null,
+   "ref_price": 4655.0,
    "held_sessions": 10
   },
   {
@@ -11246,7 +10997,7 @@
    "act_date": "2026-09-09",
    "design_date": "2026-09-10",
    "free_date": "2026-09-28",
-   "ref_price": null,
+   "ref_price": 7310.0,
    "held_sessions": 10
   },
   {
@@ -11258,7 +11009,7 @@
    "act_date": "2026-09-04",
    "design_date": "2026-09-07",
    "free_date": "2026-09-23",
-   "ref_price": null,
+   "ref_price": 49000.0,
    "held_sessions": 12
   },
   {
@@ -11270,7 +11021,7 @@
    "act_date": "2026-09-08",
    "design_date": "2026-09-09",
    "free_date": "2026-09-23",
-   "ref_price": null,
+   "ref_price": 81700.0,
    "held_sessions": 10
   },
   {
@@ -11282,7 +11033,7 @@
    "act_date": "2026-09-07",
    "design_date": "2026-09-08",
    "free_date": "2026-09-22",
-   "ref_price": null,
+   "ref_price": 1376.0,
    "held_sessions": 10
   },
   {
@@ -11294,7 +11045,7 @@
    "act_date": "2026-08-28",
    "design_date": "2026-08-31",
    "free_date": "2026-09-17",
-   "ref_price": null,
+   "ref_price": 3060.0,
    "held_sessions": 13
   },
   {
@@ -11306,7 +11057,7 @@
    "act_date": "2026-08-31",
    "design_date": "2026-09-01",
    "free_date": "2026-09-16",
-   "ref_price": null,
+   "ref_price": 24650.0,
    "held_sessions": 11
   },
   {
@@ -11318,7 +11069,7 @@
    "act_date": "2026-09-01",
    "design_date": "2026-09-02",
    "free_date": "2026-09-16",
-   "ref_price": null,
+   "ref_price": 6220.0,
    "held_sessions": 10
   },
   {
@@ -11330,7 +11081,7 @@
    "act_date": "2026-09-01",
    "design_date": "2026-09-02",
    "free_date": "2026-09-16",
-   "ref_price": null,
+   "ref_price": 3000.0,
    "held_sessions": 10
   },
   {
@@ -11342,7 +11093,7 @@
    "act_date": "2026-08-31",
    "design_date": "2026-09-01",
    "free_date": "2026-09-15",
-   "ref_price": null,
+   "ref_price": 2635.0,
    "held_sessions": 10
   },
   {
@@ -11354,7 +11105,7 @@
    "act_date": "2026-08-10",
    "design_date": "2026-08-11",
    "free_date": "2026-09-14",
-   "ref_price": null,
+   "ref_price": 4090.0,
    "held_sessions": 23
   },
   {
@@ -11366,7 +11117,7 @@
    "act_date": "2026-08-28",
    "design_date": "2026-08-31",
    "free_date": "2026-09-14",
-   "ref_price": null,
+   "ref_price": 9400.0,
    "held_sessions": 10
   },
   {
@@ -11378,7 +11129,7 @@
    "act_date": "2026-08-28",
    "design_date": "2026-08-31",
    "free_date": "2026-09-14",
-   "ref_price": null,
+   "ref_price": 10280.0,
    "held_sessions": 10
   },
   {
@@ -11390,7 +11141,7 @@
    "act_date": "2026-08-20",
    "design_date": "2026-08-21",
    "free_date": "2026-09-09",
-   "ref_price": null,
+   "ref_price": 3025.0,
    "held_sessions": 13
   },
   {
@@ -11402,7 +11153,7 @@
    "act_date": "2026-08-21",
    "design_date": "2026-08-24",
    "free_date": "2026-09-09",
-   "ref_price": null,
+   "ref_price": 3735.0,
    "held_sessions": 12
   },
   {
@@ -11414,7 +11165,7 @@
    "act_date": "2026-08-25",
    "design_date": "2026-08-26",
    "free_date": "2026-09-09",
-   "ref_price": null,
+   "ref_price": 2690.0,
    "held_sessions": 10
   },
   {
@@ -11426,7 +11177,7 @@
    "act_date": "2026-08-25",
    "design_date": "2026-08-26",
    "free_date": "2026-09-09",
-   "ref_price": null,
+   "ref_price": 55800.0,
    "held_sessions": 10
   },
   {
@@ -11438,7 +11189,7 @@
    "act_date": "2026-08-25",
    "design_date": "2026-08-26",
    "free_date": "2026-09-09",
-   "ref_price": null,
+   "ref_price": 9350.0,
    "held_sessions": 10
   },
   {
@@ -11450,7 +11201,7 @@
    "act_date": "2026-08-26",
    "design_date": "2026-08-27",
    "free_date": "2026-09-09",
-   "ref_price": null,
+   "ref_price": 3950.0,
    "held_sessions": 9
   },
   {
@@ -11462,7 +11213,7 @@
    "act_date": "2026-08-19",
    "design_date": "2026-08-20",
    "free_date": "2026-09-08",
-   "ref_price": null,
+   "ref_price": 4275.0,
    "held_sessions": 13
   },
   {
@@ -11474,7 +11225,7 @@
    "act_date": "2026-08-24",
    "design_date": "2026-08-25",
    "free_date": "2026-09-08",
-   "ref_price": null,
+   "ref_price": 2600.0,
    "held_sessions": 10
   },
   {
@@ -11486,7 +11237,7 @@
    "act_date": "2026-08-24",
    "design_date": "2026-08-25",
    "free_date": "2026-09-08",
-   "ref_price": null,
+   "ref_price": 1960.0,
    "held_sessions": 10
   },
   {
@@ -11498,7 +11249,7 @@
    "act_date": "2026-08-20",
    "design_date": "2026-08-21",
    "free_date": "2026-09-07",
-   "ref_price": null,
+   "ref_price": 460.0,
    "held_sessions": 11
   },
   {
@@ -11510,7 +11261,7 @@
    "act_date": "2026-08-21",
    "design_date": "2026-08-24",
    "free_date": "2026-09-07",
-   "ref_price": null,
+   "ref_price": 55000.0,
    "held_sessions": 10
   },
   {
@@ -11522,7 +11273,7 @@
    "act_date": "2026-08-25",
    "design_date": "2026-08-26",
    "free_date": "2026-09-04",
-   "ref_price": null,
+   "ref_price": 2000.0,
    "held_sessions": 7
   },
   {
@@ -11534,7 +11285,7 @@
    "act_date": "2026-08-19",
    "design_date": "2026-08-20",
    "free_date": "2026-09-03",
-   "ref_price": null,
+   "ref_price": 3760.0,
    "held_sessions": 10
   },
   {
@@ -11546,7 +11297,7 @@
    "act_date": "2026-08-07",
    "design_date": "2026-08-10",
    "free_date": "2026-09-02",
-   "ref_price": null,
+   "ref_price": 598.0,
    "held_sessions": 16
   },
   {
@@ -11558,7 +11309,7 @@
    "act_date": "2026-08-11",
    "design_date": "2026-08-12",
    "free_date": "2026-09-02",
-   "ref_price": null,
+   "ref_price": 608.0,
    "held_sessions": 14
   },
   {
@@ -11570,7 +11321,7 @@
    "act_date": "2026-08-14",
    "design_date": "2026-08-18",
    "free_date": "2026-09-02",
-   "ref_price": null,
+   "ref_price": 9800.0,
    "held_sessions": 11
   },
   {
@@ -11582,7 +11333,7 @@
    "act_date": "2026-08-18",
    "design_date": "2026-08-19",
    "free_date": "2026-09-02",
-   "ref_price": null,
+   "ref_price": 26450.0,
    "held_sessions": 10
   },
   {
@@ -11594,7 +11345,7 @@
    "act_date": "2026-08-18",
    "design_date": "2026-08-19",
    "free_date": "2026-09-02",
-   "ref_price": null,
+   "ref_price": 18570.0,
    "held_sessions": 10
   },
   {
@@ -11606,7 +11357,7 @@
    "act_date": "2026-08-14",
    "design_date": "2026-08-18",
    "free_date": "2026-09-01",
-   "ref_price": null,
+   "ref_price": 6140.0,
    "held_sessions": 10
   },
   {
@@ -11618,28 +11369,16 @@
    "act_date": "2026-08-14",
    "design_date": "2026-08-18",
    "free_date": "2026-09-01",
-   "ref_price": null,
-   "held_sessions": 10
-  },
-  {
-   "tier": "warning",
-   "code": "448900",
-   "name": "한국피아이엠",
-   "market": "코스닥",
-   "reason": null,
-   "act_date": "2026-08-14",
-   "design_date": "2026-08-18",
-   "free_date": "2026-09-01",
-   "ref_price": null,
+   "ref_price": 19740.0,
    "held_sessions": 10
   }
  ],
  "stats": {
-  "warning": 24,
+  "warning": 23,
   "risk": 1,
   "caution": 22,
   "preannounce": 17,
-  "release_confirmed": 1,
+  "release_confirmed": 0,
   "upcoming_warning": 0,
   "release_ready": 0,
   "before_judge": 23,
