@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-10-30 07:20",
- "as_of": "2026-10-29",
- "next_session": "2026-10-30",
+ "generated_at": "2026-10-30 20:10",
+ "as_of": "2026-10-30",
+ "next_session": "2026-11-02",
  "warning": [
   {
    "tier": "warning",
@@ -12,9 +12,9 @@
    "act_date": "2026-10-26",
    "design_date": "2026-10-27",
    "free_date": null,
-   "ref_price": 2200.0,
+   "ref_price": null,
    "price_ok": true,
-   "last_date": "2026-10-29",
+   "last_date": "2026-10-30",
    "stale": false,
    "halted_sessions": 0,
    "halted": false,
@@ -29,20 +29,20 @@
     "confidence": "high",
     "caution_days_15": 4
    },
-   "sessions_since_design": 3,
+   "sessions_since_design": 4,
    "judge_start": {
     "date": "2026-11-09",
-    "remaining_sessions": 7,
+    "remaining_sessions": 6,
     "projected": true,
     "reached": false,
     "earliest_release": "2026-11-10"
    },
    "latest": {
-    "close": 2200,
-    "r5": 0.028037383177569986,
-    "r15": 0.21883656509695282,
-    "base5": 2140,
-    "base15": 1805,
+    "close": 2155,
+    "r5": -0.22482014388489213,
+    "r15": 0.23142857142857154,
+    "base5": 2780,
+    "base15": 1750,
     "high15_price": 2890,
     "window": 15,
     "cond": {
@@ -53,13 +53,13 @@
     "hit": [],
     "releasable": true,
     "partial": false,
-    "date": "2026-10-29",
-    "chg_pct": -0.09278350515463918
+    "date": "2026-10-30",
+    "chg_pct": -0.020454545454545503
    },
    "release_line": {
     "caps": {
-     "surge5": 4448,
-     "surge15": 3500,
+     "surge5": 4624,
+     "surge15": 2898,
      "high15": 2890
     },
     "binding": "high15",
@@ -71,12 +71,12 @@
     "close": 2890
    },
    "halt": {
-    "trigger": 3395,
+    "trigger": 3080,
     "ratio": 0.4,
-    "gap_pct": 0.5431818181818182
+    "gap_pct": 0.4292343387470998
    },
-   "since_design_pct": -0.23875432525951557,
-   "next_session": "2026-10-30",
+   "since_design_pct": -0.25432525951557095,
+   "next_session": "2026-11-02",
    "confirmed_release": null,
    "status": "before_judge",
    "expected_release_date": null,
@@ -90,20 +90,16 @@
     "hit": [],
     "release_line": {
      "caps": {
-      "surge5": 4031,
-      "surge15": 3062,
+      "surge5": 4190,
+      "surge15": 2536,
       "high15": 2890
      },
-     "binding": "high15",
-     "max_close": 2885,
-     "cap": 2890
+     "binding": "surge15",
+     "max_close": 2535,
+     "cap": 2536
     }
    },
    "spark": [
-    {
-     "d": "2026-08-24",
-     "c": 3670
-    },
     {
      "d": "2026-08-25",
      "c": 3755
@@ -279,6 +275,10 @@
     {
      "d": "2026-10-29",
      "c": 2200
+    },
+    {
+     "d": "2026-10-30",
+     "c": 2155
     }
    ]
   },
@@ -291,9 +291,9 @@
    "act_date": "2026-10-23",
    "design_date": "2026-10-26",
    "free_date": null,
-   "ref_price": 24400.0,
+   "ref_price": null,
    "price_ok": true,
-   "last_date": "2026-10-29",
+   "last_date": "2026-10-30",
    "stale": false,
    "halted_sessions": 0,
    "halted": false,
@@ -308,20 +308,20 @@
     "confidence": "low",
     "caution_days_15": 1
    },
-   "sessions_since_design": 4,
+   "sessions_since_design": 5,
    "judge_start": {
     "date": "2026-11-06",
-    "remaining_sessions": 6,
+    "remaining_sessions": 5,
     "projected": true,
     "reached": false,
     "earliest_release": "2026-11-09"
    },
    "latest": {
-    "close": 24400,
-    "r5": 0.042735042735042805,
-    "r15": 0.038297872340425476,
-    "base5": 23400,
-    "base15": 23500,
+    "close": 23200,
+    "r5": -0.09727626459143968,
+    "r15": -0.08481262327416172,
+    "base5": 25700,
+    "base15": 25350,
     "high15_price": 25700,
     "window": 15,
     "cond": {
@@ -332,13 +332,13 @@
     "hit": [],
     "releasable": true,
     "partial": false,
-    "date": "2026-10-29",
-    "chg_pct": -0.031746031746031744
+    "date": "2026-10-30",
+    "chg_pct": -0.049180327868852514
    },
    "release_line": {
     "caps": {
-     "surge5": 37265,
-     "surge15": 44362,
+     "surge5": 35670,
+     "surge15": 40075,
      "high15": 25700
     },
     "binding": "high15",
@@ -350,12 +350,12 @@
     "close": 25700
    },
    "halt": {
-    "trigger": 35300,
+    "trigger": 34200,
     "ratio": 0.4,
-    "gap_pct": 0.44672131147540983
+    "gap_pct": 0.47413793103448265
    },
-   "since_design_pct": -0.05058365758754868,
-   "next_session": "2026-10-30",
+   "since_design_pct": -0.09727626459143968,
+   "next_session": "2026-11-02",
    "confirmed_release": null,
    "status": "before_judge",
    "expected_release_date": null,
@@ -369,8 +369,8 @@
     "hit": [],
     "release_line": {
      "caps": {
-      "surge5": 41120,
-      "surge15": 50700,
+      "surge5": 39360,
+      "surge15": 45800,
       "high15": 25700
      },
      "binding": "high15",
@@ -379,10 +379,6 @@
     }
    },
    "spark": [
-    {
-     "d": "2026-08-24",
-     "c": 16120
-    },
     {
      "d": "2026-08-25",
      "c": 15800
@@ -558,6 +554,10 @@
     {
      "d": "2026-10-29",
      "c": 24400
+    },
+    {
+     "d": "2026-10-30",
+     "c": 23200
     }
    ]
   },
@@ -570,9 +570,9 @@
    "act_date": "2026-10-23",
    "design_date": "2026-10-26",
    "free_date": null,
-   "ref_price": 5240.0,
+   "ref_price": null,
    "price_ok": true,
-   "last_date": "2026-10-29",
+   "last_date": "2026-10-30",
    "stale": false,
    "halted_sessions": 0,
    "halted": false,
@@ -587,20 +587,20 @@
     "confidence": "low",
     "caution_days_15": 2
    },
-   "sessions_since_design": 4,
+   "sessions_since_design": 5,
    "judge_start": {
     "date": "2026-11-06",
-    "remaining_sessions": 6,
+    "remaining_sessions": 5,
     "projected": true,
     "reached": false,
     "earliest_release": "2026-11-09"
    },
    "latest": {
-    "close": 5240,
-    "r5": 0.06180344478216826,
-    "r15": 0.210161662817552,
-    "base5": 4935,
-    "base15": 4330,
+    "close": 5200,
+    "r5": -0.03703703703703709,
+    "r15": 0.16985376827896514,
+    "base5": 5400,
+    "base15": 4445,
     "high15_price": 5530,
     "window": 15,
     "cond": {
@@ -611,13 +611,13 @@
     "hit": [],
     "releasable": true,
     "partial": false,
-    "date": "2026-10-29",
-    "chg_pct": -0.0278293135435993
+    "date": "2026-10-30",
+    "chg_pct": -0.007633587786259555
    },
    "release_line": {
     "caps": {
-     "surge5": 7830,
-     "surge15": 7779,
+     "surge5": 8018,
+     "surge15": 8505,
      "high15": 5530
     },
     "binding": "high15",
@@ -629,12 +629,12 @@
     "close": 5400
    },
    "halt": {
-    "trigger": 7550,
+    "trigger": 7340,
     "ratio": 0.4,
-    "gap_pct": 0.44083969465648853
+    "gap_pct": 0.41153846153846163
    },
-   "since_design_pct": -0.029629629629629672,
-   "next_session": "2026-10-30",
+   "since_design_pct": -0.03703703703703709,
+   "next_session": "2026-11-02",
    "confirmed_release": null,
    "status": "before_judge",
    "expected_release_date": null,
@@ -648,8 +648,8 @@
     "hit": [],
     "release_line": {
      "caps": {
-      "surge5": 8640,
-      "surge15": 8890,
+      "surge5": 8848,
+      "surge15": 9720,
       "high15": 5530
      },
      "binding": "high15",
@@ -658,10 +658,6 @@
     }
    },
    "spark": [
-    {
-     "d": "2026-08-21",
-     "c": 1212
-    },
     {
      "d": "2026-08-24",
      "c": 1575
@@ -837,6 +833,10 @@
     {
      "d": "2026-10-29",
      "c": 5240
+    },
+    {
+     "d": "2026-10-30",
+     "c": 5200
     }
    ]
   },
@@ -849,11 +849,11 @@
    "act_date": "2026-10-19",
    "design_date": "2026-10-20",
    "free_date": null,
-   "ref_price": 544.0,
+   "ref_price": null,
    "price_ok": true,
    "last_date": "2026-10-22",
    "stale": true,
-   "halted_sessions": 5,
+   "halted_sessions": 6,
    "halted": true,
    "group": {
     "key": "A",
@@ -1128,11 +1128,11 @@
    "act_date": "2026-10-15",
    "design_date": "2026-10-16",
    "free_date": null,
-   "ref_price": 171.0,
+   "ref_price": null,
    "price_ok": true,
    "last_date": "2026-10-23",
    "stale": true,
-   "halted_sessions": 4,
+   "halted_sessions": 5,
    "halted": true,
    "group": {
     "key": "A",
@@ -1407,9 +1407,9 @@
    "act_date": "2026-10-13",
    "design_date": "2026-10-14",
    "free_date": null,
-   "ref_price": 1362.0,
+   "ref_price": null,
    "price_ok": true,
-   "last_date": "2026-10-29",
+   "last_date": "2026-10-30",
    "stale": false,
    "halted_sessions": 0,
    "halted": false,
@@ -1424,7 +1424,7 @@
     "confidence": "high",
     "caution_days_15": 5
    },
-   "sessions_since_design": 11,
+   "sessions_since_design": 12,
    "judge_start": {
     "date": "2026-10-28",
     "remaining_sessions": 0,
@@ -1433,78 +1433,50 @@
     "earliest_release": "2026-10-29"
    },
    "latest": {
-    "close": 1362,
-    "r5": -0.33235294117647063,
-    "r15": 1.203883495145631,
-    "base5": 2040,
-    "base15": 618,
+    "close": 1350,
+    "r5": -0.22901199314677323,
+    "r15": 0.9424460431654675,
+    "base5": 1751,
+    "base15": 695,
     "high15_price": 2575,
     "window": 15,
     "cond": {
      "surge5": false,
-     "surge15": true,
+     "surge15": false,
      "high15": false
     },
-    "hit": [
-     "surge15"
-    ],
-    "releasable": false,
+    "hit": [],
+    "releasable": true,
     "partial": false,
-    "date": "2026-10-29",
-    "chg_pct": -0.16951219512195126
+    "date": "2026-10-30",
+    "chg_pct": -0.008810572687224627
    },
    "release_line": {
     "caps": {
-     "surge5": 2802,
-     "surge15": 1390,
+     "surge5": 2592,
+     "surge15": 1806,
      "high15": 2575
     },
     "binding": "surge15",
-    "max_close": 1389,
-    "cap": 1390
+    "max_close": 1805,
+    "cap": 1806
    },
    "base_prev": {
     "date": "2026-10-13",
     "close": 1524
    },
    "halt": {
-    "trigger": 2300,
+    "trigger": 1907,
     "ratio": 0.4,
-    "gap_pct": 0.6886930983847284
+    "gap_pct": 0.4125925925925926
    },
-   "since_design_pct": -0.10629921259842523,
-   "next_session": "2026-10-30",
-   "confirmed_release": null,
-   "status": "blocked",
-   "expected_release_date": null,
-   "blockers": [
-    "surge15"
-   ],
-   "alt": {
-    "group": "B",
-    "label": "불건전형",
-    "th5": 0.45,
-    "th15": 0.75,
-    "releasable": false,
-    "hit": [
-     "surge15"
-    ],
-    "release_line": {
-     "caps": {
-      "surge5": 2539,
-      "surge15": 1216,
-      "high15": 2575
-     },
-     "binding": "surge15",
-     "max_close": 1216,
-     "cap": 1216
-    }
-   },
+   "since_design_pct": -0.11417322834645671,
+   "next_session": "2026-11-02",
+   "confirmed_release": "2026-11-02",
+   "status": "release_confirmed",
+   "expected_release_date": "2026-11-02",
+   "blockers": [],
    "spark": [
-    {
-     "d": "2026-08-21",
-     "c": 1546
-    },
     {
      "d": "2026-08-24",
      "c": 1579
@@ -1680,6 +1652,10 @@
     {
      "d": "2026-10-29",
      "c": 1362
+    },
+    {
+     "d": "2026-10-30",
+     "c": 1350
     }
    ]
   },
@@ -1692,11 +1668,11 @@
    "act_date": "2026-10-13",
    "design_date": "2026-10-14",
    "free_date": null,
-   "ref_price": 301.0,
+   "ref_price": null,
    "price_ok": true,
    "last_date": "2026-10-22",
    "stale": true,
-   "halted_sessions": 5,
+   "halted_sessions": 6,
    "halted": true,
    "group": {
     "key": "A",
@@ -1971,11 +1947,11 @@
    "act_date": "2026-08-10",
    "design_date": "2026-08-11",
    "free_date": null,
-   "ref_price": 1622.0,
+   "ref_price": null,
    "price_ok": true,
    "last_date": "2026-08-19",
    "stale": true,
-   "halted_sessions": 47,
+   "halted_sessions": 48,
    "halted": true,
    "group": {
     "key": "A",
@@ -2257,24 +2233,20 @@
    "act_date": "2026-10-29",
    "design_date": "2026-10-30",
    "free_date": null,
-   "ref_price": 5110.0,
+   "ref_price": null,
    "latest": {
-    "date": "2026-10-29",
-    "close": 5110,
-    "r3": 0.5747303543913713,
-    "r5": 0.6836902800658979,
-    "r15": 0.5051546391752577,
-    "high15": true
+    "date": "2026-10-30",
+    "close": 4655,
+    "r3": 0.09529411764705875,
+    "r5": 0.5212418300653594,
+    "r15": 0.37315634218289095,
+    "high15": false
    },
    "window": {
-    "used_sessions": null,
-    "left_sessions": null
+    "used_sessions": 1,
+    "left_sessions": 9
    },
    "spark": [
-    {
-     "d": "2026-08-24",
-     "c": 3675
-    },
     {
      "d": "2026-08-25",
      "c": 3700
@@ -2450,6 +2422,10 @@
     {
      "d": "2026-10-29",
      "c": 5110
+    },
+    {
+     "d": "2026-10-30",
+     "c": 4655
     }
    ]
   },
@@ -2462,24 +2438,20 @@
    "act_date": "2026-10-29",
    "design_date": "2026-10-30",
    "free_date": null,
-   "ref_price": 11510.0,
+   "ref_price": null,
    "latest": {
-    "date": "2026-10-29",
-    "close": 11190,
-    "r3": 0.05965909090909083,
-    "r5": 0.7904,
-    "r15": 0.39352428393524286,
+    "date": "2026-10-30",
+    "close": 11230,
+    "r3": 0.08293153326904523,
+    "r5": 0.3813038130381303,
+    "r15": 0.4215189873417722,
     "high15": true
    },
    "window": {
-    "used_sessions": null,
-    "left_sessions": null
+    "used_sessions": 1,
+    "left_sessions": 9
    },
    "spark": [
-    {
-     "d": "2026-08-24",
-     "c": 6950
-    },
     {
      "d": "2026-08-25",
      "c": 7150
@@ -2655,6 +2627,10 @@
     {
      "d": "2026-10-29",
      "c": 11190
+    },
+    {
+     "d": "2026-10-30",
+     "c": 11230
     }
    ]
   },
@@ -2667,24 +2643,20 @@
    "act_date": "2026-10-27",
    "design_date": "2026-10-28",
    "free_date": null,
-   "ref_price": 3775.0,
+   "ref_price": null,
    "latest": {
-    "date": "2026-10-29",
-    "close": 3740,
-    "r3": 0.1578947368421053,
-    "r5": 0.2941176470588236,
-    "r15": 0.5813953488372092,
+    "date": "2026-10-30",
+    "close": 3790,
+    "r3": -0.021935483870967776,
+    "r5": 0.24058919803600665,
+    "r15": 0.6127659574468085,
     "high15": false
    },
    "window": {
-    "used_sessions": 2,
-    "left_sessions": 8
+    "used_sessions": 3,
+    "left_sessions": 7
    },
    "spark": [
-    {
-     "d": "2026-08-24",
-     "c": 3475
-    },
     {
      "d": "2026-08-25",
      "c": 3700
@@ -2860,6 +2832,10 @@
     {
      "d": "2026-10-29",
      "c": 3740
+    },
+    {
+     "d": "2026-10-30",
+     "c": 3790
     }
    ]
   },
@@ -2872,24 +2848,20 @@
    "act_date": "2026-10-23",
    "design_date": "2026-10-26",
    "free_date": null,
-   "ref_price": 1234.0,
+   "ref_price": null,
    "latest": {
-    "date": "2026-10-29",
-    "close": 1184,
-    "r3": -0.11111111111111116,
-    "r5": -0.20696584058941725,
-    "r15": 0.28416485900216926,
+    "date": "2026-10-30",
+    "close": 1128,
+    "r3": -0.14674735249621784,
+    "r5": -0.25,
+    "r15": 0.20384204909284942,
     "high15": false
    },
    "window": {
-    "used_sessions": 4,
-    "left_sessions": 6
+    "used_sessions": 5,
+    "left_sessions": 5
    },
    "spark": [
-    {
-     "d": "2026-08-24",
-     "c": 1047
-    },
     {
      "d": "2026-08-25",
      "c": 1040
@@ -3065,6 +3037,10 @@
     {
      "d": "2026-10-29",
      "c": 1184
+    },
+    {
+     "d": "2026-10-30",
+     "c": 1128
     }
    ]
   },
@@ -3077,24 +3053,20 @@
    "act_date": "2026-10-23",
    "design_date": "2026-10-26",
    "free_date": null,
-   "ref_price": 2910.0,
+   "ref_price": null,
    "latest": {
-    "date": "2026-10-29",
-    "close": 2910,
-    "r3": -0.23722149410222804,
-    "r5": -0.21457489878542513,
-    "r15": -0.24611398963730569,
+    "date": "2026-10-30",
+    "close": 2760,
+    "r3": -0.20346320346320346,
+    "r5": -0.426791277258567,
+    "r15": -0.28774193548387095,
     "high15": false
    },
    "window": {
-    "used_sessions": 4,
-    "left_sessions": 6
+    "used_sessions": 5,
+    "left_sessions": 5
    },
    "spark": [
-    {
-     "d": "2026-08-03",
-     "c": 5040
-    },
     {
      "d": "2026-08-04",
      "c": 5175
@@ -3270,6 +3242,10 @@
     {
      "d": "2026-10-29",
      "c": 2910
+    },
+    {
+     "d": "2026-10-30",
+     "c": 2760
     }
    ]
   },
@@ -3282,24 +3258,20 @@
    "act_date": "2026-10-22",
    "design_date": "2026-10-23",
    "free_date": null,
-   "ref_price": 8000.0,
+   "ref_price": null,
    "latest": {
-    "date": "2026-10-29",
-    "close": 8100,
-    "r3": 0.053315994798439625,
-    "r5": -0.25,
-    "r15": -0.029940119760479056,
+    "date": "2026-10-30",
+    "close": 7630,
+    "r3": -0.07290400972053468,
+    "r5": -0.2222222222222222,
+    "r15": -0.05802469135802468,
     "high15": false
    },
    "window": {
-    "used_sessions": 5,
-    "left_sessions": 5
+    "used_sessions": 6,
+    "left_sessions": 4
    },
    "spark": [
-    {
-     "d": "2026-08-24",
-     "c": 10830
-    },
     {
      "d": "2026-08-25",
      "c": 10350
@@ -3475,6 +3447,10 @@
     {
      "d": "2026-10-29",
      "c": 8100
+    },
+    {
+     "d": "2026-10-30",
+     "c": 7630
     }
    ]
   },
@@ -3487,24 +3463,20 @@
    "act_date": "2026-10-22",
    "design_date": "2026-10-23",
    "free_date": null,
-   "ref_price": 4360.0,
+   "ref_price": null,
    "latest": {
-    "date": "2026-10-29",
-    "close": 4390,
-    "r3": -0.0629669156883671,
-    "r5": -0.1306930693069307,
-    "r15": 0.36124031007751944,
+    "date": "2026-10-30",
+    "close": 3890,
+    "r3": -0.20449897750511248,
+    "r5": -0.21095334685598377,
+    "r15": 0.1877862595419848,
     "high15": false
    },
    "window": {
-    "used_sessions": 5,
-    "left_sessions": 5
+    "used_sessions": 6,
+    "left_sessions": 4
    },
    "spark": [
-    {
-     "d": "2026-08-24",
-     "c": 2285
-    },
     {
      "d": "2026-08-25",
      "c": 2290
@@ -3680,6 +3652,10 @@
     {
      "d": "2026-10-29",
      "c": 4390
+    },
+    {
+     "d": "2026-10-30",
+     "c": 3890
     }
    ]
   },
@@ -3692,24 +3668,20 @@
    "act_date": "2026-10-22",
    "design_date": "2026-10-23",
    "free_date": null,
-   "ref_price": 48000.0,
+   "ref_price": null,
    "latest": {
-    "date": "2026-10-29",
-    "close": 46000,
-    "r3": -0.17562724014336917,
-    "r5": -0.3502824858757062,
-    "r15": -0.07351460221550854,
+    "date": "2026-10-30",
+    "close": 39700,
+    "r3": -0.3544715447154472,
+    "r5": -0.42128279883381925,
+    "r15": -0.29107142857142854,
     "high15": false
    },
    "window": {
-    "used_sessions": 5,
-    "left_sessions": 5
+    "used_sessions": 6,
+    "left_sessions": 4
    },
    "spark": [
-    {
-     "d": "2026-08-24",
-     "c": 30300
-    },
     {
      "d": "2026-08-25",
      "c": 30800
@@ -3885,6 +3857,10 @@
     {
      "d": "2026-10-29",
      "c": 46000
+    },
+    {
+     "d": "2026-10-30",
+     "c": 39700
     }
    ]
   },
@@ -3897,24 +3873,20 @@
    "act_date": "2026-10-21",
    "design_date": "2026-10-22",
    "free_date": null,
-   "ref_price": 6990.0,
+   "ref_price": null,
    "latest": {
-    "date": "2026-10-29",
-    "close": 7060,
-    "r3": 0.1806020066889633,
-    "r5": 0.10658307210031337,
-    "r15": 0.18855218855218858,
+    "date": "2026-10-30",
+    "close": 6510,
+    "r3": -0.03412462908011871,
+    "r5": 0.08319467554076532,
+    "r15": 0.11472602739726034,
     "high15": false
    },
    "window": {
-    "used_sessions": 6,
-    "left_sessions": 4
+    "used_sessions": 7,
+    "left_sessions": 3
    },
    "spark": [
-    {
-     "d": "2026-08-24",
-     "c": 6320
-    },
     {
      "d": "2026-08-25",
      "c": 5580
@@ -4090,6 +4062,10 @@
     {
      "d": "2026-10-29",
      "c": 7060
+    },
+    {
+     "d": "2026-10-30",
+     "c": 6510
     }
    ]
   },
@@ -4102,24 +4078,20 @@
    "act_date": "2026-10-21",
    "design_date": "2026-10-22",
    "free_date": null,
-   "ref_price": 8940.0,
+   "ref_price": null,
    "latest": {
-    "date": "2026-10-29",
-    "close": 8840,
-    "r3": -0.06849315068493156,
-    "r5": -0.10976837865055389,
-    "r15": 0.5454545454545454,
+    "date": "2026-10-30",
+    "close": 8260,
+    "r3": -0.13235294117647056,
+    "r5": -0.11657754010695187,
+    "r15": 0.41196581196581206,
     "high15": false
    },
    "window": {
-    "used_sessions": 6,
-    "left_sessions": 4
+    "used_sessions": 7,
+    "left_sessions": 3
    },
    "spark": [
-    {
-     "d": "2026-08-24",
-     "c": 4320
-    },
     {
      "d": "2026-08-25",
      "c": 4430
@@ -4295,6 +4267,10 @@
     {
      "d": "2026-10-29",
      "c": 8840
+    },
+    {
+     "d": "2026-10-30",
+     "c": 8260
     }
    ]
   },
@@ -4307,24 +4283,20 @@
    "act_date": "2026-10-19",
    "design_date": "2026-10-20",
    "free_date": null,
-   "ref_price": 3575.0,
+   "ref_price": null,
    "latest": {
-    "date": "2026-10-29",
-    "close": 3650,
-    "r3": 0.18892508143322484,
-    "r5": 0.07038123167155419,
-    "r15": 0.6781609195402298,
+    "date": "2026-10-30",
+    "close": 3160,
+    "r3": -0.003154574132492094,
+    "r5": -0.021671826625387025,
+    "r15": 0.39207048458149774,
     "high15": false
    },
    "window": {
-    "used_sessions": 8,
-    "left_sessions": 2
+    "used_sessions": 9,
+    "left_sessions": 1
    },
    "spark": [
-    {
-     "d": "2026-08-24",
-     "c": 1516
-    },
     {
      "d": "2026-08-25",
      "c": 1529
@@ -4500,6 +4472,10 @@
     {
      "d": "2026-10-29",
      "c": 3650
+    },
+    {
+     "d": "2026-10-30",
+     "c": 3160
     }
    ]
   },
@@ -4512,24 +4488,20 @@
    "act_date": "2026-10-16",
    "design_date": "2026-10-19",
    "free_date": null,
-   "ref_price": 2635.0,
+   "ref_price": null,
    "latest": {
-    "date": "2026-10-29",
-    "close": 2720,
-    "r3": -0.005484460694698323,
-    "r5": 0.05836575875486383,
-    "r15": 0.5035931453841902,
+    "date": "2026-10-30",
+    "close": 2675,
+    "r3": -0.016544117647058876,
+    "r5": -0.01834862385321101,
+    "r15": 0.4779005524861879,
     "high15": false
    },
    "window": {
-    "used_sessions": 9,
-    "left_sessions": 1
+    "used_sessions": 10,
+    "left_sessions": 0
    },
    "spark": [
-    {
-     "d": "2026-08-24",
-     "c": 1627
-    },
     {
      "d": "2026-08-25",
      "c": 1632
@@ -4705,132 +4677,135 @@
     {
      "d": "2026-10-29",
      "c": 2720
+    },
+    {
+     "d": "2026-10-30",
+     "c": 2675
     }
    ]
   }
  ],
  "caution": {
-  "date": "2026-10-30",
+  "date": "2026-11-02",
   "rows": [
    {
     "reasons": [
      "소수지점/계좌"
     ],
-    "code": "202960",
-    "name": "판도라티비",
-    "market": "코넥스",
-    "ref_price": 241.0,
-    "act_date": "2026-10-29",
-    "design_date": "2026-10-30",
+    "code": "043610",
+    "name": "KT지니뮤직",
+    "market": "코스닥",
+    "ref_price": null,
+    "act_date": "2026-10-30",
+    "design_date": "2026-11-02",
     "kind": "주권"
    },
    {
     "reasons": [
      "소수지점/계좌"
     ],
-    "code": "058820",
-    "name": "CMG제약",
+    "code": "094860",
+    "name": "네오리진",
     "market": "코스닥",
-    "ref_price": 4370.0,
-    "act_date": "2026-10-29",
-    "design_date": "2026-10-30",
-    "kind": "주권"
-   },
-   {
-    "reasons": [
-     "매매관여과다종목"
-    ],
-    "code": "095340",
-    "name": "ISC",
-    "market": "코스닥",
-    "ref_price": 166200.0,
-    "act_date": "2026-10-29",
-    "design_date": "2026-10-30",
-    "kind": "주권"
-   },
-   {
-    "reasons": [
-     "소수지점/계좌"
-    ],
-    "code": "038060",
-    "name": "루멘스바이오스",
-    "market": "코스닥",
-    "ref_price": 788.0,
-    "act_date": "2026-10-29",
-    "design_date": "2026-10-30",
-    "kind": "주권"
-   },
-   {
-    "reasons": [
-     "소수지점/계좌"
-    ],
-    "code": "195990",
-    "name": "루트K",
-    "market": "코스닥",
-    "ref_price": 1053.0,
-    "act_date": "2026-10-29",
-    "design_date": "2026-10-30",
-    "kind": "주권"
-   },
-   {
-    "reasons": [
-     "종가급변"
-    ],
-    "code": "142760",
-    "name": "모아라이프플러스",
-    "market": "코스닥",
-    "ref_price": 236.0,
-    "act_date": "2026-10-29",
-    "design_date": "2026-10-30",
-    "kind": "주권"
-   },
-   {
-    "reasons": [
-     "매매관여과다종목"
-    ],
-    "code": "159010",
-    "name": "아스플로",
-    "market": "코스닥",
-    "ref_price": 35650.0,
-    "act_date": "2026-10-29",
-    "design_date": "2026-10-30",
-    "kind": "주권"
-   },
-   {
-    "reasons": [
-     "소수지점/계좌",
-     "매매관여과다종목"
-    ],
-    "code": "196700",
-    "name": "웹스",
-    "market": "코스닥",
-    "ref_price": 1321.0,
-    "act_date": "2026-10-29",
-    "design_date": "2026-10-30",
+    "ref_price": null,
+    "act_date": "2026-10-30",
+    "design_date": "2026-11-02",
     "kind": "주권"
    },
    {
     "reasons": [
      "투자경고 지정해제"
     ],
-    "code": "009730",
-    "name": "이렘",
+    "code": "199730",
+    "name": "바이오인프라",
     "market": "코스닥",
-    "ref_price": 2235.0,
-    "act_date": "2026-10-29",
-    "design_date": "2026-10-30",
+    "ref_price": null,
+    "act_date": "2026-10-30",
+    "design_date": "2026-11-02",
     "kind": "주권"
    },
    {
     "reasons": [
-     "투자경고 지정예고"
+     "단일계좌거래량"
     ],
-    "code": "451760",
-    "name": "컨텍",
+    "code": "457600",
+    "name": "벡트로보틱스",
     "market": "코스닥",
-    "ref_price": 11510.0,
-    "act_date": "2026-10-29",
-    "design_date": "2026-10-30",
+    "ref_price": null,
+    "act_date": "2026-10-30",
+    "design_date": "2026-11-02",
+    "kind": "주권"
+   },
+   {
+    "reasons": [
+     "소수지점/계좌"
+    ],
+    "code": "408900",
+    "name": "스튜디오미르",
+    "market": "코스닥",
+    "ref_price": null,
+    "act_date": "2026-10-30",
+    "design_date": "2026-11-02",
+    "kind": "주권"
+   },
+   {
+    "reasons": [
+     "소수지점/계좌"
+    ],
+    "code": "464500",
+    "name": "아이언디바이스",
+    "market": "코스닥",
+    "ref_price": null,
+    "act_date": "2026-10-30",
+    "design_date": "2026-11-02",
+    "kind": "주권"
+   },
+   {
+    "reasons": [
+     "소수지점/계좌"
+    ],
+    "code": "059100",
+    "name": "아이컴포넌트",
+    "market": "코스닥",
+    "ref_price": null,
+    "act_date": "2026-10-30",
+    "design_date": "2026-11-02",
+    "kind": "주권"
+   },
+   {
+    "reasons": [
+     "소수지점/계좌"
+    ],
+    "code": "069920",
+    "name": "엑시온그룹",
+    "market": "코스닥",
+    "ref_price": null,
+    "act_date": "2026-10-30",
+    "design_date": "2026-11-02",
+    "kind": "주권"
+   },
+   {
+    "reasons": [
+     "소수지점/계좌"
+    ],
+    "code": "053350",
+    "name": "이니텍",
+    "market": "코스닥",
+    "ref_price": null,
+    "act_date": "2026-10-30",
+    "design_date": "2026-11-02",
+    "kind": "주권"
+   },
+   {
+    "reasons": [
+     "소수지점/계좌"
+    ],
+    "code": "309930",
+    "name": "조이웍스앤코",
+    "market": "코스닥",
+    "ref_price": null,
+    "act_date": "2026-10-30",
+    "design_date": "2026-11-02",
     "kind": "주권"
    },
    {
@@ -4840,45 +4815,9 @@
     "code": "431190",
     "name": "케이쓰리아이",
     "market": "코스닥",
-    "ref_price": 3050.0,
-    "act_date": "2026-10-29",
-    "design_date": "2026-10-30",
-    "kind": "주권"
-   },
-   {
-    "reasons": [
-     "소수지점/계좌"
-    ],
-    "code": "272110",
-    "name": "케이엔제이",
-    "market": "코스닥",
-    "ref_price": 27950.0,
-    "act_date": "2026-10-29",
-    "design_date": "2026-10-30",
-    "kind": "주권"
-   },
-   {
-    "reasons": [
-     "소수지점/계좌"
-    ],
-    "code": "045520",
-    "name": "크린앤사이언스",
-    "market": "코스닥",
-    "ref_price": 2510.0,
-    "act_date": "2026-10-29",
-    "design_date": "2026-10-30",
-    "kind": "주권"
-   },
-   {
-    "reasons": [
-     "매매관여과다종목"
-    ],
-    "code": "219130",
-    "name": "타이거일렉",
-    "market": "코스닥",
-    "ref_price": 101800.0,
-    "act_date": "2026-10-29",
-    "design_date": "2026-10-30",
+    "ref_price": null,
+    "act_date": "2026-10-30",
+    "design_date": "2026-11-02",
     "kind": "주권"
    },
    {
@@ -4888,57 +4827,57 @@
     "code": "114630",
     "name": "폴라리스우노",
     "market": "코스닥",
-    "ref_price": 1172.0,
-    "act_date": "2026-10-29",
-    "design_date": "2026-10-30",
+    "ref_price": null,
+    "act_date": "2026-10-30",
+    "design_date": "2026-11-02",
     "kind": "주권"
    },
    {
     "reasons": [
-     "투자경고 지정해제"
+     "종가급변"
     ],
-    "code": "065650",
-    "name": "하이퍼코퍼레이션",
-    "market": "코스닥",
-    "ref_price": 1450.0,
-    "act_date": "2026-10-29",
-    "design_date": "2026-10-30",
+    "code": "092780",
+    "name": "DYP",
+    "market": "코스피",
+    "ref_price": null,
+    "act_date": "2026-10-30",
+    "design_date": "2026-11-02",
     "kind": "주권"
    },
    {
     "reasons": [
      "소수지점/계좌"
     ],
-    "code": "017890",
-    "name": "한국알콜",
-    "market": "코스닥",
-    "ref_price": 15810.0,
-    "act_date": "2026-10-29",
-    "design_date": "2026-10-30",
-    "kind": "주권"
-   },
-   {
-    "reasons": [
-     "투자경고 지정예고"
-    ],
-    "code": "308170",
-    "name": "씨티알모빌리티",
+    "code": "001780",
+    "name": "알루코",
     "market": "코스피",
-    "ref_price": 5110.0,
-    "act_date": "2026-10-29",
-    "design_date": "2026-10-30",
+    "ref_price": null,
+    "act_date": "2026-10-30",
+    "design_date": "2026-11-02",
     "kind": "주권"
    },
    {
     "reasons": [
      "소수지점/계좌"
     ],
-    "code": "950210",
-    "name": "프레스티지바이오파마",
+    "code": "004870",
+    "name": "티웨이홀딩스",
     "market": "코스피",
-    "ref_price": 4155.0,
-    "act_date": "2026-10-29",
-    "design_date": "2026-10-30",
+    "ref_price": null,
+    "act_date": "2026-10-30",
+    "design_date": "2026-11-02",
+    "kind": "주권"
+   },
+   {
+    "reasons": [
+     "소수지점/계좌"
+    ],
+    "code": "006490",
+    "name": "프리티",
+    "market": "코스피",
+    "ref_price": null,
+    "act_date": "2026-10-30",
+    "design_date": "2026-11-02",
     "kind": "주권"
    },
    {
@@ -4948,17 +4887,16 @@
     "code": "57MF82",
     "name": "한국MF82KOSPI200콜",
     "market": "코스피",
-    "ref_price": 745.0,
-    "act_date": "2026-10-29",
-    "design_date": "2026-10-30",
+    "ref_price": null,
+    "act_date": "2026-10-30",
+    "design_date": "2026-11-02",
     "kind": "ELW"
    }
   ],
   "reason_counts": {
-   "소수지점/계좌": 12,
-   "매매관여과다종목": 4,
-   "투자경고 지정해제": 2,
-   "투자경고 지정예고": 2,
+   "소수지점/계좌": 14,
+   "투자경고 지정해제": 1,
+   "단일계좌거래량": 1,
    "종가급변": 1
   },
   "repeat": [
@@ -4966,7 +4904,7 @@
     "code": "026910",
     "name": "광진실업",
     "market": "코스닥",
-    "ref_price": 3775.0,
+    "ref_price": null,
     "days": 6,
     "last_date": "2026-10-28",
     "reasons": {
@@ -4976,36 +4914,21 @@
      "투자경고 지정예고": 1
     },
     "warn_threshold": true,
-    "r15": 0.5813953488372092,
-    "close": 3740,
+    "r15": 0.6127659574468085,
+    "close": 3790,
     "high15": false,
     "preannounce_ready": false
    },
    {
-    "code": "035620",
-    "name": "바른손이앤에이",
+    "code": "464500",
+    "name": "아이언디바이스",
     "market": "코스닥",
-    "ref_price": 418.0,
+    "ref_price": null,
     "days": 4,
-    "last_date": "2026-10-23",
+    "last_date": "2026-11-02",
     "reasons": {
-     "소수지점/계좌": 3,
-     "매매관여과다종목": 1,
-     "단일계좌거래량": 1
-    },
-    "warn_threshold": false
-   },
-   {
-    "code": "092870",
-    "name": "엑시콘",
-    "market": "코스닥",
-    "ref_price": 65300.0,
-    "days": 4,
-    "last_date": "2026-10-28",
-    "reasons": {
-     "소수계좌 매수관여 과다": 3,
-     "투자경고 지정예고": 1,
-     "투자경고 지정해제": 1
+     "소수지점/계좌": 4,
+     "매매관여과다종목": 3
     },
     "warn_threshold": false
    },
@@ -5013,7 +4936,7 @@
     "code": "156100",
     "name": "엘앤케이바이오",
     "market": "코스닥",
-    "ref_price": 6270.0,
+    "ref_price": null,
     "days": 4,
     "last_date": "2026-10-26",
     "reasons": {
@@ -5026,7 +4949,7 @@
     "code": "009730",
     "name": "이렘",
     "market": "코스닥",
-    "ref_price": 2235.0,
+    "ref_price": null,
     "days": 4,
     "last_date": "2026-10-30",
     "reasons": {
@@ -5040,7 +4963,7 @@
     "code": "494120",
     "name": "큐리오시스",
     "market": "코스닥",
-    "ref_price": 9560.0,
+    "ref_price": null,
     "days": 4,
     "last_date": "2026-10-29",
     "reasons": {
@@ -5052,7 +4975,7 @@
     "code": "002820",
     "name": "SUN&L",
     "market": "코스피",
-    "ref_price": 1014.0,
+    "ref_price": null,
     "days": 3,
     "last_date": "2026-10-14",
     "reasons": {
@@ -5064,7 +4987,7 @@
     "code": "013580",
     "name": "계룡건설",
     "market": "코스피",
-    "ref_price": 23600.0,
+    "ref_price": null,
     "days": 3,
     "last_date": "2026-10-26",
     "reasons": {
@@ -5076,7 +4999,7 @@
     "code": "032860",
     "name": "더라미",
     "market": "코스닥",
-    "ref_price": 3465.0,
+    "ref_price": null,
     "days": 3,
     "last_date": "2026-10-14",
     "reasons": {
@@ -5089,7 +5012,7 @@
     "code": "004835",
     "name": "덕성우",
     "market": "코스피",
-    "ref_price": 4520.0,
+    "ref_price": null,
     "days": 3,
     "last_date": "2026-10-14",
     "reasons": {
@@ -5099,10 +5022,38 @@
     "warn_threshold": false
    },
    {
+    "code": "035620",
+    "name": "바른손이앤에이",
+    "market": "코스닥",
+    "ref_price": null,
+    "days": 3,
+    "last_date": "2026-10-23",
+    "reasons": {
+     "소수지점/계좌": 2,
+     "매매관여과다종목": 1,
+     "단일계좌거래량": 1
+    },
+    "warn_threshold": false
+   },
+   {
+    "code": "199730",
+    "name": "바이오인프라",
+    "market": "코스닥",
+    "ref_price": null,
+    "days": 3,
+    "last_date": "2026-11-02",
+    "reasons": {
+     "상한가잔량": 1,
+     "투자경고 지정예고": 1,
+     "투자경고 지정해제": 1
+    },
+    "warn_threshold": false
+   },
+   {
     "code": "109670",
     "name": "씨싸이트",
     "market": "코스닥",
-    "ref_price": 10400.0,
+    "ref_price": null,
     "days": 3,
     "last_date": "2026-10-20",
     "reasons": {
@@ -5112,23 +5063,10 @@
     "warn_threshold": false
    },
    {
-    "code": "464500",
-    "name": "아이언디바이스",
-    "market": "코스닥",
-    "ref_price": 1741.0,
-    "days": 3,
-    "last_date": "2026-10-22",
-    "reasons": {
-     "매매관여과다종목": 3,
-     "소수지점/계좌": 3
-    },
-    "warn_threshold": false
-   },
-   {
     "code": "011090",
     "name": "에넥스",
     "market": "코스피",
-    "ref_price": 1576.0,
+    "ref_price": null,
     "days": 3,
     "last_date": "2026-10-16",
     "reasons": {
@@ -5140,7 +5078,7 @@
     "code": "373200",
     "name": "엑스플러스",
     "market": "코스닥",
-    "ref_price": 2970.0,
+    "ref_price": null,
     "days": 3,
     "last_date": "2026-10-23",
     "reasons": {
@@ -5150,10 +5088,24 @@
     "warn_threshold": false
    },
    {
+    "code": "092870",
+    "name": "엑시콘",
+    "market": "코스닥",
+    "ref_price": null,
+    "days": 3,
+    "last_date": "2026-10-28",
+    "reasons": {
+     "소수계좌 매수관여 과다": 2,
+     "투자경고 지정예고": 1,
+     "투자경고 지정해제": 1
+    },
+    "warn_threshold": false
+   },
+   {
     "code": "056080",
     "name": "유진로봇",
     "market": "코스닥",
-    "ref_price": 9900.0,
+    "ref_price": null,
     "days": 3,
     "last_date": "2026-10-15",
     "reasons": {
@@ -5165,7 +5117,7 @@
     "code": "287840",
     "name": "인투셀",
     "market": "코스닥",
-    "ref_price": 15530.0,
+    "ref_price": null,
     "days": 3,
     "last_date": "2026-10-21",
     "reasons": {
@@ -5178,7 +5130,7 @@
     "code": "070590",
     "name": "인티큐브",
     "market": "코스닥",
-    "ref_price": 2880.0,
+    "ref_price": null,
     "days": 3,
     "last_date": "2026-10-29",
     "reasons": {
@@ -5187,29 +5139,26 @@
     "warn_threshold": false
    },
    {
-    "code": "051160",
-    "name": "지어소프트",
+    "code": "431190",
+    "name": "케이쓰리아이",
     "market": "코스닥",
-    "ref_price": 13100.0,
+    "ref_price": null,
     "days": 3,
-    "last_date": "2026-10-21",
+    "last_date": "2026-11-02",
     "reasons": {
      "소수지점/계좌": 3
     },
     "warn_threshold": false
    },
    {
-    "code": "291650",
-    "name": "츌립앤사이언스",
+    "code": "114630",
+    "name": "폴라리스우노",
     "market": "코스닥",
-    "ref_price": 2300.0,
+    "ref_price": null,
     "days": 3,
-    "last_date": "2026-10-27",
+    "last_date": "2026-11-02",
     "reasons": {
-     "소수지점/계좌": 1,
-     "투자경고 지정예고": 1,
-     "소수계좌 매수관여 과다": 1,
-     "투자경고 지정해제": 1
+     "소수지점/계좌": 3
     },
     "warn_threshold": false
    },
@@ -5217,7 +5166,7 @@
     "code": "065650",
     "name": "하이퍼코퍼레이션",
     "market": "코스닥",
-    "ref_price": 1450.0,
+    "ref_price": null,
     "days": 3,
     "last_date": "2026-10-30",
     "reasons": {
@@ -5232,7 +5181,7 @@
     "code": "219750",
     "name": "한국비티비",
     "market": "코스닥",
-    "ref_price": 2635.0,
+    "ref_price": null,
     "days": 3,
     "last_date": "2026-10-19",
     "reasons": {
@@ -5247,7 +5196,7 @@
     "code": "011080",
     "name": "형지I&C",
     "market": "코스닥",
-    "ref_price": 672.0,
+    "ref_price": null,
     "days": 3,
     "last_date": "2026-10-29",
     "reasons": {
@@ -5270,8 +5219,8 @@
    "act_date": "2026-10-15",
    "design_date": "2026-10-16",
    "free_date": "2026-10-30",
-   "ref_price": 2235.0,
-   "held_sessions": null
+   "ref_price": null,
+   "held_sessions": 10
   },
   {
    "tier": "warning",
@@ -5282,8 +5231,8 @@
    "act_date": "2026-10-15",
    "design_date": "2026-10-16",
    "free_date": "2026-10-30",
-   "ref_price": 1450.0,
-   "held_sessions": null
+   "ref_price": null,
+   "held_sessions": 10
   },
   {
    "tier": "warning",
@@ -5294,7 +5243,7 @@
    "act_date": "2026-10-08",
    "design_date": "2026-10-12",
    "free_date": "2026-10-29",
-   "ref_price": 5250.0,
+   "ref_price": null,
    "held_sessions": 13
   },
   {
@@ -5306,7 +5255,7 @@
    "act_date": "2026-10-13",
    "design_date": "2026-10-14",
    "free_date": "2026-10-29",
-   "ref_price": 1020.0,
+   "ref_price": null,
    "held_sessions": 11
   },
   {
@@ -5318,7 +5267,7 @@
    "act_date": "2026-10-14",
    "design_date": "2026-10-15",
    "free_date": "2026-10-29",
-   "ref_price": 194000.0,
+   "ref_price": null,
    "held_sessions": 10
   },
   {
@@ -5330,7 +5279,7 @@
    "act_date": "2026-10-13",
    "design_date": "2026-10-14",
    "free_date": "2026-10-28",
-   "ref_price": 672.0,
+   "ref_price": null,
    "held_sessions": 10
   },
   {
@@ -5342,7 +5291,7 @@
    "act_date": "2026-10-13",
    "design_date": "2026-10-14",
    "free_date": "2026-10-28",
-   "ref_price": 7900.0,
+   "ref_price": null,
    "held_sessions": 10
   },
   {
@@ -5354,7 +5303,7 @@
    "act_date": "2026-10-13",
    "design_date": "2026-10-14",
    "free_date": "2026-10-28",
-   "ref_price": 65300.0,
+   "ref_price": null,
    "held_sessions": 10
   },
   {
@@ -5366,7 +5315,7 @@
    "act_date": "2026-10-12",
    "design_date": "2026-10-13",
    "free_date": "2026-10-27",
-   "ref_price": 32750.0,
+   "ref_price": null,
    "held_sessions": 10
   },
   {
@@ -5378,7 +5327,7 @@
    "act_date": "2026-10-12",
    "design_date": "2026-10-13",
    "free_date": "2026-10-27",
-   "ref_price": 2300.0,
+   "ref_price": null,
    "held_sessions": 10
   },
   {
@@ -5390,7 +5339,7 @@
    "act_date": "2026-09-29",
    "design_date": "2026-09-30",
    "free_date": "2026-10-26",
-   "ref_price": 3730.0,
+   "ref_price": null,
    "held_sessions": 16
   },
   {
@@ -5402,7 +5351,7 @@
    "act_date": "2026-10-06",
    "design_date": "2026-10-07",
    "free_date": "2026-10-22",
-   "ref_price": 25700.0,
+   "ref_price": null,
    "held_sessions": 10
   },
   {
@@ -5414,7 +5363,7 @@
    "act_date": "2026-10-06",
    "design_date": "2026-10-07",
    "free_date": "2026-10-22",
-   "ref_price": 1100.0,
+   "ref_price": null,
    "held_sessions": 10
   },
   {
@@ -5426,7 +5375,7 @@
    "act_date": "2026-10-06",
    "design_date": "2026-10-07",
    "free_date": "2026-10-22",
-   "ref_price": 10080.0,
+   "ref_price": null,
    "held_sessions": 10
   },
   {
@@ -5438,7 +5387,7 @@
    "act_date": "2026-10-01",
    "design_date": "2026-10-02",
    "free_date": "2026-10-21",
-   "ref_price": 131.0,
+   "ref_price": null,
    "held_sessions": 11
   },
   {
@@ -5450,7 +5399,7 @@
    "act_date": "2026-10-02",
    "design_date": "2026-10-06",
    "free_date": "2026-10-21",
-   "ref_price": 8580.0,
+   "ref_price": null,
    "held_sessions": 10
   },
   {
@@ -5462,7 +5411,7 @@
    "act_date": "2026-10-01",
    "design_date": "2026-10-02",
    "free_date": "2026-10-20",
-   "ref_price": 35650.0,
+   "ref_price": null,
    "held_sessions": 10
   },
   {
@@ -5474,7 +5423,7 @@
    "act_date": "2026-09-23",
    "design_date": "2026-09-28",
    "free_date": "2026-10-16",
-   "ref_price": 10400.0,
+   "ref_price": null,
    "held_sessions": 12
   },
   {
@@ -5486,7 +5435,7 @@
    "act_date": "2026-09-29",
    "design_date": "2026-09-30",
    "free_date": "2026-10-16",
-   "ref_price": 449000.0,
+   "ref_price": null,
    "held_sessions": 10
   },
   {
@@ -5498,7 +5447,7 @@
    "act_date": "2026-09-29",
    "design_date": "2026-09-30",
    "free_date": "2026-10-16",
-   "ref_price": 62000.0,
+   "ref_price": null,
    "held_sessions": 10
   },
   {
@@ -5510,7 +5459,7 @@
    "act_date": "2026-09-29",
    "design_date": "2026-09-30",
    "free_date": "2026-10-16",
-   "ref_price": 21250.0,
+   "ref_price": null,
    "held_sessions": 10
   },
   {
@@ -5522,7 +5471,7 @@
    "act_date": "2026-09-22",
    "design_date": "2026-09-23",
    "free_date": "2026-10-15",
-   "ref_price": 39500.0,
+   "ref_price": null,
    "held_sessions": 12
   },
   {
@@ -5534,7 +5483,7 @@
    "act_date": "2026-09-28",
    "design_date": "2026-09-29",
    "free_date": "2026-10-15",
-   "ref_price": 3400.0,
+   "ref_price": null,
    "held_sessions": 10
   },
   {
@@ -5546,7 +5495,7 @@
    "act_date": "2026-09-23",
    "design_date": "2026-09-28",
    "free_date": "2026-10-14",
-   "ref_price": 120300.0,
+   "ref_price": null,
    "held_sessions": 10
   },
   {
@@ -5558,7 +5507,7 @@
    "act_date": "2026-09-23",
    "design_date": "2026-09-28",
    "free_date": "2026-10-14",
-   "ref_price": 5240.0,
+   "ref_price": null,
    "held_sessions": 10
   },
   {
@@ -5570,7 +5519,7 @@
    "act_date": "2026-09-21",
    "design_date": "2026-09-22",
    "free_date": "2026-10-13",
-   "ref_price": 2450.0,
+   "ref_price": null,
    "held_sessions": 11
   },
   {
@@ -5582,7 +5531,7 @@
    "act_date": "2026-09-22",
    "design_date": "2026-09-23",
    "free_date": "2026-10-13",
-   "ref_price": 1960.0,
+   "ref_price": null,
    "held_sessions": 10
   },
   {
@@ -5594,7 +5543,7 @@
    "act_date": "2026-09-22",
    "design_date": "2026-09-23",
    "free_date": "2026-10-13",
-   "ref_price": 104400.0,
+   "ref_price": null,
    "held_sessions": 10
   },
   {
@@ -5606,7 +5555,7 @@
    "act_date": "2026-09-21",
    "design_date": "2026-09-22",
    "free_date": "2026-10-12",
-   "ref_price": 9440.0,
+   "ref_price": null,
    "held_sessions": 10
   },
   {
@@ -5618,7 +5567,7 @@
    "act_date": "2026-09-18",
    "design_date": "2026-09-21",
    "free_date": "2026-10-08",
-   "ref_price": 1400.0,
+   "ref_price": null,
    "held_sessions": 10
   },
   {
@@ -5630,7 +5579,7 @@
    "act_date": "2026-09-16",
    "design_date": "2026-09-17",
    "free_date": "2026-10-07",
-   "ref_price": 101800.0,
+   "ref_price": null,
    "held_sessions": 11
   },
   {
@@ -5642,7 +5591,7 @@
    "act_date": "2026-09-17",
    "design_date": "2026-09-18",
    "free_date": "2026-10-07",
-   "ref_price": 11180.0,
+   "ref_price": null,
    "held_sessions": 10
   },
   {
@@ -5654,7 +5603,7 @@
    "act_date": "2026-09-17",
    "design_date": "2026-09-18",
    "free_date": "2026-10-07",
-   "ref_price": 2080.0,
+   "ref_price": null,
    "held_sessions": 10
   },
   {
@@ -5666,7 +5615,7 @@
    "act_date": "2026-09-15",
    "design_date": "2026-09-16",
    "free_date": "2026-10-06",
-   "ref_price": 194200.0,
+   "ref_price": null,
    "held_sessions": 11
   },
   {
@@ -5678,7 +5627,7 @@
    "act_date": "2026-09-16",
    "design_date": "2026-09-17",
    "free_date": "2026-10-06",
-   "ref_price": 2330.0,
+   "ref_price": null,
    "held_sessions": 10
   },
   {
@@ -5690,7 +5639,7 @@
    "act_date": "2026-09-16",
    "design_date": "2026-09-17",
    "free_date": "2026-10-06",
-   "ref_price": 4040.0,
+   "ref_price": null,
    "held_sessions": 10
   },
   {
@@ -5702,7 +5651,7 @@
    "act_date": "2026-09-16",
    "design_date": "2026-09-17",
    "free_date": "2026-10-06",
-   "ref_price": 2080.0,
+   "ref_price": null,
    "held_sessions": 10
   },
   {
@@ -5714,7 +5663,7 @@
    "act_date": "2026-09-16",
    "design_date": "2026-09-17",
    "free_date": "2026-10-06",
-   "ref_price": 7900.0,
+   "ref_price": null,
    "held_sessions": 10
   },
   {
@@ -5726,7 +5675,7 @@
    "act_date": "2026-09-14",
    "design_date": "2026-09-15",
    "free_date": "2026-10-01",
-   "ref_price": 6170.0,
+   "ref_price": null,
    "held_sessions": 10
   },
   {
@@ -5738,16 +5687,16 @@
    "act_date": "2026-09-10",
    "design_date": "2026-09-11",
    "free_date": "2026-09-30",
-   "ref_price": 972.0,
+   "ref_price": null,
    "held_sessions": 11
   }
  ],
  "stats": {
   "warning": 8,
   "risk": 0,
-  "caution": 20,
+  "caution": 17,
   "preannounce": 12,
-  "release_confirmed": 0,
+  "release_confirmed": 1,
   "upcoming_warning": 0,
   "release_ready": 0,
   "before_judge": 7,
@@ -5763,7 +5712,7 @@
    "7": 7,
    "8": 4,
    "9": 3,
-   "10": 708,
+   "10": 710,
    "11": 100,
    "12": 54,
    "13": 37,
@@ -5780,6 +5729,6 @@
    "27": 1,
    "100": 1
   },
-  "n": 1019
+  "n": 1021
  }
 }
