@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {createRoot} from 'react-dom/client';
 import {Compass, LockKeyhole, LogOut} from 'lucide-react';
 import Dashboard from './app/page';
@@ -7,6 +7,7 @@ import './app/globals.css';
 import './pages.css';
 function App() {
  const [opened,setOpened] = useState(false), [busy,setBusy] = useState(false), [password,setPassword] = useState(''), [error,setError] = useState(''), [published,setPublished] = useState('');
+ useEffect(()=>{const sync=(e:Event)=>setPublished((e as CustomEvent<string>).detail);window.addEventListener('options-pages-updated',sync);return()=>window.removeEventListener('options-pages-updated',sync);},[]);
  async function open(e: React.FormEvent) {
   e.preventDefault(); setBusy(true); setError('');
   try { const data = await unlock(password, await fetchEnvelope()); setPublished(data.publishedAt); setPassword(''); setOpened(true); }

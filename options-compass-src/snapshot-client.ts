@@ -20,7 +20,9 @@ async function decrypt(e: Envelope): Promise<Snapshot> {
  const text = await new Response(new Blob([raw]).stream().pipeThrough(new DecompressionStream('gzip'))).text();
  const data = JSON.parse(text) as Snapshot;
  if (data.version !== 1 || !data.dashboard?.data?.contracts?.length || !Array.isArray(data.global?.markets)) throw new Error('자료를 확인하지 못했습니다.');
- current = data; loadedAt = Date.now(); return data;
+ current = data; loadedAt = Date.now();
+ if(typeof window!=='undefined')window.dispatchEvent(new CustomEvent('options-pages-updated',{detail:data.publishedAt}));
+ return data;
 }
 export async function unlock(password: string, e: Envelope) {
  const material = await crypto.subtle.importKey('raw', new TextEncoder().encode(password), 'PBKDF2', false, ['deriveKey']);
