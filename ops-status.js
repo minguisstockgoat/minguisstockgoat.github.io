@@ -8,6 +8,7 @@ function date(s){s=String(s||'');return /^\d{8}/.test(s)?s.slice(0,4)+'-'+s.slic
 function lag(s){const iso=date(s);if(!/^\d{4}-\d{2}-\d{2}$/.test(iso))return Infinity;let d=new Date(iso+'T00:00:00Z'),end=new Date(today+'T00:00:00Z'),n=0;while(d<end){d.setUTCDate(d.getUTCDate()+1);if(d.getUTCDay()%6!==0&&!holidays.has(d.toISOString().slice(0,10)))n++;}return n;}
 function base(s,label){const n=lag(s);return {text:label+' '+date(s)+(n>2?' · '+n+'거래일 경과':''),level:n>2?'bad':''};}
 const rules={
+'options-compass':async u=>{const d=await get(u+'data/status.json');return base(d.koreaDate,'한국 자료');},
 'overnight-terminal':async u=>{const d=await get(u+'data/finra_credit.json');return base(d.latestDate,'일별 지표');},
 'overnight-us-brief':async u=>{const d=await get(u+'data.json');const v=base(d.generatedAt,'브리핑');if(d.status!=='ok')v.level='warn';return v;},
 'pattern-screener':async u=>base((await get(u+'data/summary.json')).base_date,'종가 기준'),
