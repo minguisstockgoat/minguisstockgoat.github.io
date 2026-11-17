@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17 20:10",
+ "generated_at": "2026-11-18 07:20",
  "as_of": "2026-11-17",
  "next_session": "2026-11-18",
  "warning": [
@@ -3392,8 +3392,8 @@
    "price_ok": true,
    "last_date": "2026-08-19",
    "stale": true,
-   "halted_sessions": 60,
-   "halted": true,
+   "halted_sessions": null,
+   "halted": false,
    "group": {
     "key": "A",
     "label": "급등형",
@@ -3407,11 +3407,11 @@
    },
    "sessions_since_design": 6,
    "judge_start": {
-    "date": null,
+    "date": "2026-08-25",
     "remaining_sessions": 4,
     "projected": true,
     "reached": false,
-    "earliest_release": null
+    "earliest_release": "2026-08-26"
    },
    "latest": {
     "close": 1622,
@@ -3452,7 +3452,7 @@
     "gap_pct": 0.4241676942046855
    },
    "since_design_pct": 0.025284450063211228,
-   "next_session": null,
+   "next_session": "2026-08-20",
    "confirmed_release": null,
    "status": "before_judge",
    "expected_release_date": null,
@@ -9110,7 +9110,7 @@
   "upcoming_warning": 0,
   "release_ready": 0,
   "before_judge": 13,
-  "halted": 4
+  "halted": 3
  },
  "verify": {
   "gap_sessions_hist": {
@@ -9122,7 +9122,7 @@
    "7": 7,
    "8": 4,
    "9": 3,
-   "10": 708,
+   "10": 706,
    "11": 99,
    "12": 53,
    "13": 37,
@@ -9139,6 +9139,6 @@
    "27": 1,
    "100": 1
   },
-  "n": 1015
+  "n": 1013
  }
 }
