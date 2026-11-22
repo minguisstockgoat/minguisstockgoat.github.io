@@ -21,3 +21,13 @@ The updater uses credentials already stored outside this public repository under
 ## Access
 
 The generated password and owner-only access instructions live under the private Site's ignored `.sites-runtime/pages/`. Do not publish them. All devices must use the same password. Do not share it or the decrypted market data, because MarketData self-service licenses prohibit redistribution: https://www.marketdata.app/docs/account/data-policies/data-redistribution/
+
+## SPX expiry history (added 2026-11-22)
+
+The additive `trends` tab reads `/api/spx-trends` through the encrypted snapshot adapter. Existing tabs and Telegram delivery are preserved. The backend stores per-day OCC contracts in D1, retaining preceding expiries. It tracks two Friday expiries plus the next monthly expiry, on a fixed 25-point strike grid. SPX AM and SPXW PM are kept separate. Up to 15 historical sessions are backfilled through bounded two-day requests. All requests use the existing shared rolling 80-credit allowance; two credits are conservatively reserved per history request. No paid plan, checkout, billing, or new account is used.
+
+Volume is assigned to the actual quote's US date. Day D's OI change uses D+1 opening OI minus D opening OI, only when both are available on consecutive verified trading dates and the option has not expired. Missing days are never bridged, missing contracts remain unknown, and expired/latest-day changes are not inferred. Moneyness is computed from each day's own index close. Downside share/distance are withheld when the requested grid does not cover the full 0–15% downside window. The recent-volume multiple requires at least three preceding observations and average volume of at least 100; it includes expiry-approach effects and is not called normalized unusual buying.
+
+The guide is deployed separately at `options-compass/spx-guide.html` and linked from the new tab. It explains the reading order, settlement, OI publication lag, volume versus new positions, coverage, missing values, and free data timing.
+
+The Mac publisher now also permits stale-data catch-up outside its ordinary weekday window, records safe errors to private local state, and uses calendar checks in addition to its existing interval. The page shows a warning when the encrypted snapshot publication is over 36 hours old. These checks do not guarantee a future scheduled execution while the Mac is off or signed out.

@@ -34,12 +34,20 @@ async function collect() {
  if(!Array.isArray(history.observations)) throw new Error('invalid_history');
  const orderFlow = await api('/api/order-flow?date='+dashboard.data.krxDate);
  const old = await previous();
+ let spxTrends=old?.spxTrends??null;
+ try {
+  for(let i=0;i<8;i++){
+   const next=await api('/api/spx-trends',{});
+   if(Array.isArray(next.days)&&next.days.length)spxTrends=next;
+   if(!next.pending||next.error)break;
+  }
+ } catch { /* Keep the preceding history if the source cannot finish this run. */ }
  if (old?.dashboard?.data?.krxDate > dashboard.data.krxDate) throw new Error('korea_date_rollback');
  if (old) for (let i=0;i<global.markets.length;i++) {
   const prior=old.global.markets.find(m=>m.symbol===global.markets[i].symbol);
   if (prior?.date>global.markets[i].date) global.markets[i]=prior;
  }
- return {version:1,publishedAt:new Date().toISOString(),dashboard:{data:dashboard.data,updatedAt:dashboard.updatedAt??Date.now(),refreshConfigured:false},history,global:{markets:global.markets,freeOnly:true,usConfigured:false},orderFlow};
+ return {version:1,publishedAt:new Date().toISOString(),dashboard:{data:dashboard.data,updatedAt:dashboard.updatedAt??Date.now(),refreshConfigured:false},history,global:{markets:global.markets,freeOnly:true,usConfigured:false},orderFlow,spxTrends};
 }
 async function previous() {
  try {

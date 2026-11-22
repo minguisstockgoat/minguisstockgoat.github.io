@@ -1,4 +1,4 @@
-type Snapshot = { version: 1; publishedAt: string; dashboard: any; history: any; global: any; orderFlow: any };
+type Snapshot = { version: 1; publishedAt: string; dashboard: any; history: any; global: any; orderFlow: any; spxTrends?: any };
 type Envelope = { version: number; cipher: string; kdf: string; iterations: number; salt: string; iv: string; ciphertext: string };
 const aad = new TextEncoder().encode('options-compass-pages:v1');
 let current: Snapshot | null = null;
@@ -46,6 +46,7 @@ export async function snapshotFetch(input: string, init?: RequestInit): Promise<
   case '/api/dashboard': result = {...d.dashboard, refreshConfigured: false}; break;
   case '/api/refresh': result = {...d.dashboard, refreshConfigured: false, cached: true}; break;
   case '/api/history': result = d.history; break;
+  case '/api/spx-trends': result = d.spxTrends??{version:1,symbol:'SPX',days:[],calendar:[],targetDate:'',targets:[],pending:0,updatedAt:null}; break;
   case '/api/global-options': {
    if (init?.method === 'POST') { const request = JSON.parse(String(init.body ?? '{}')); result = {market: d.global.markets.find((m: any) => m.symbol === request.symbol)}; }
    else result = {...d.global, usConfigured: false};

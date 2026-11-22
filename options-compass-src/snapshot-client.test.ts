@@ -17,6 +17,7 @@ assert.deepEqual(globe.markets,data.global.markets);
 const selected=await(await snapshotFetch('/api/global-options',{method:'POST',body:JSON.stringify({symbol:'HSI'})})).json();
 assert.equal(selected.market.symbol,'HSI');
 assert.deepEqual(await(await snapshotFetch('/api/history')).json(),data.history);
+if(data.spxTrends)assert.deepEqual(await(await snapshotFetch('/api/spx-trends')).json(),data.spxTrends,'encrypted expiry history must reach the new tab unchanged');
 assert.equal((await(await snapshotFetch('/api/order-flow?date=19990101')).json()).data,null);
 const controller=new AbortController();controller.abort();
 await assert.rejects(snapshotFetch('/api/history',{signal:controller.signal}),{name:'AbortError'});
