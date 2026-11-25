@@ -2,7 +2,7 @@
 
 Live: https://minguisstockgoat.github.io/options-compass/
 
-The existing Korean and overseas UI is built as a static React/Vite app under `options-compass/`. The hub links to it from the flow section. All market data, including US data restricted to personal use, is gzip-compressed and AES-256-GCM encrypted. The browser derives the key using PBKDF2-SHA256 (310,000 iterations) and the owner's generated high-entropy password. The password and API/service credentials are never included in source, browser assets, URLs, or logs. Only non-sensitive publication and source dates are public. The browser holds its non-extractable decryption key in memory and forgets it on reload or lock.
+The existing Korean and overseas UI is built as a static React/Vite app under `options-compass/`. The hub links to it from the flow section. All market data, including US data restricted to personal use, is gzip-compressed and AES-256-GCM encrypted. The browser derives the key using PBKDF2-SHA256 (310,000 iterations) and the owner's chosen password. The password and API/service credentials are never included in source, browser assets, URLs, or logs. Only non-sensitive publication and source dates are public. The browser holds its non-extractable decryption key in memory and forgets it on reload or lock.
 
 ## Rebuild
 
@@ -20,7 +20,7 @@ The updater uses credentials already stored outside this public repository under
 
 ## Access
 
-The generated password and owner-only access instructions live under the private Site's ignored `.sites-runtime/pages/`. Do not publish them. All devices must use the same password. Do not share it or the decrypted market data, because MarketData self-service licenses prohibit redistribution: https://www.marketdata.app/docs/account/data-policies/data-redistribution/
+The password and owner-only access instructions live under the private Site's ignored `.sites-runtime/pages/`. Do not publish them. All devices must use the same password. Do not share it or the decrypted market data, because MarketData self-service licenses prohibit redistribution: https://www.marketdata.app/docs/account/data-policies/data-redistribution/
 
 ## SPX expiry history (added 2026-11-22)
 

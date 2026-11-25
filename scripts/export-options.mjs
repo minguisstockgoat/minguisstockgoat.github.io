@@ -9,7 +9,7 @@ const OUTPUT = path.join(ROOT, 'options-compass/data');
 const config = JSON.parse(await readFile(path.join(ROOT,'scripts/options-config.json'),'utf8'));
 const secret = process.env.OPTIONS_SITE_SERVICE_TOKEN, password = process.env.OPTIONS_VIEW_PASSWORD;
 let priorEnvelope = null, priorData = null;
-if (!secret || !password || password.length < 16) throw new Error('Private configuration is missing.');
+if (!secret || !password || password.length < 8) throw new Error('Private configuration is missing.');
 async function api(route, body) {
  const r = await fetch(SITE + route, {method:body===undefined?'GET':'POST', headers:{'OAI-Sites-Authorization':'Bearer '+secret,'content-type':'application/json'},body:body===undefined?undefined:JSON.stringify(body),signal:AbortSignal.timeout(120000),redirect:'error'});
  if (!r.ok) throw new Error('source_http_'+r.status);
